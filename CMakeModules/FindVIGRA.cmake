@@ -64,24 +64,6 @@ IF (VIGRA_FOUND)
         "VIGRA lib is too old.\nHugin requires at least version 1.9.0, but found version ${VIGRA_VERSION}."
     )
   ENDIF()
-
-  # check if vigraimpex is linked against OpenEXR
-  IF(CMAKE_SYSTEM_NAME STREQUAL "Linux")
-    FIND_PROGRAM(LDD_EXECUTABLE ldd)
-    IF(LDD_EXECUTABLE)
-      EXECUTE_PROCESS(
-        COMMAND ${LDD_EXECUTABLE} ${VIGRA_LIBRARIES}
-        OUTPUT_VARIABLE OUTPUT_LDD_VIGRA
-        OUTPUT_STRIP_TRAILING_WHITESPACE
-      )
-      STRING(TOLOWER "${OUTPUT_LDD_VIGRA}" OUTPUT_LDD_VIGRA_LOWER)
-      IF(NOT "${OUTPUT_LDD_VIGRA_LOWER}" MATCHES "libilmimf")
-        MESSAGE(FATAL_ERROR "Libvigraimpex found. But vigraimpex seems to compiled without OpenEXR support. OpenEXR support is required for Hugin.")
-      ENDIF()
-    ELSE()
-      MESSAGE(FATAL_ERROR "Could not check libraries on which vigraimpex depends. (ldd is missing)") 
-    ENDIF()
-  ENDIF()
 ELSE (VIGRA_FOUND)
 	MESSAGE(FATAL_ERROR "Could not find VIGRA")
 ENDIF (VIGRA_FOUND)
