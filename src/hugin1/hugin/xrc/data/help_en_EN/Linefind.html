@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="client-nojs">
+<head>
+<meta charset="UTF-8"/>
+<title>Linefind - PanoTools.org Wiki</title>
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE"/>
+<meta name="generator" content="MediaWiki 1.23.15"/>
+
+
+
+
+
+
+<style media="screen" type="text/css" title="Screen style sheet"> @import url(manual.css); </style>
+
+<style>a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: panotools_wiki:resourceloader:filter:minify-css:7:90730a7865ba4b50e0b837e1821ff0a3 */</style>
+
+
+
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/skins/vector/csshover.min.htc")}</style><![endif]--></head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-Linefind skin-vector action-view vector-animateLayout">
+		
+		
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+			
+						<h1 id="firstHeading" class="firstHeading" lang="en"><span dir="auto">Linefind</span></h1>
+						<div id="bodyContent">
+								<div id="siteSub">From PanoTools.org Wiki</div>
+								
+												
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><h1><a name="General_and_description"><span class="mw-headline">General and description</span></a></h1>
+<p><b>Linefind</b> is a detector for vertical features in images. It tries to find vertical lines using the same algorithm as <a href="Calibrate_lens_gui.html#Line_detection" title="Calibrate lens gui">Calibrate_lens_gui</a> and assigns <a href="Vertical_control_points.html" title="Vertical control points">vertical control points</a> to them. The detection runs on the source images, if the input images are <a href="Rectilinear_Projection.html" title="Rectilinear Projection">rectilinear images</a>. In the other cases (e. g. <a href="Fisheye_Projection.html" title="Fisheye Projection">fisheye images</a>) the input images are reprojected to an <a href="Equirectangular_Projection.html" title="Equirectangular Projection">equirectangular projection</a> and the detection works on the reprojected images.
+It uses the <a href="Roll.html" title="Roll">roll value</a>, saved in the pto project file, to determine what is "top" and "bottom". So before running <b>linefind</b> check that your <a href="Roll.html" title="Roll">roll values</a> are correct (E. g. when using images straight from the camera, use a roll value of 0 for landscape and a value of 90 or 270 for portrait images. If your camera has an orientation sensor, <a href="Hugin.html" title="Hugin">Hugin</a> can detect this information automatically and sets the roll value accordingly when adding such images into Hugin.
+</p>
+<h1><a name="Usage"><span class="mw-headline">Usage</span></a></h1>
+<p>The general usage is
+</p>
+<pre>     linefind -o output.pto input.pto
+</pre>
+<p>If the --output/-o switch is missing then the suffix "_line" is added to the filename.
+</p><p>The maximal number of lines added per image can be given with the --lines switch (or short -l):
+</p>
+<pre>     linefind --lines=10 -o output.pto input.pto
+</pre>
+<p>By default maximal 5 lines per image are added to the project file. 
+</p><p><b>Attention:</b> Keep in mind that more <a href="Vertical_control_points.html" title="Vertical control points">vertical control points</a> will dominate the optimisation in favour of <a href="Control_points.html" title="Control points">"normal" control points</a>. 
+</p><p>Normally <b>linefind</b> tries to find vertical lines in all images of the project file. If you want to limit the detection to some selected images, you can use the --image/-i switch, e.g.
+</p>
+<pre>    linefind --image=0 --image=4 -o output.pto input.pto
+</pre>
+<p>will only search for vertical lines in image 0 and 4.
+</p>
+
+
+
+</div>								<div class="printfooter">
+				Retrieved from "http://wiki.panotools.org/index.php?title=Linefind&amp;oldid=13793<a class="external" href="http://wiki.panotools.org/index.php?title=Linefind&amp;oldid=13793">[*]</a>"				</div>
+												</div></div></body></html>

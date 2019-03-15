@@ -1,0 +1,11 @@
+# this is a comment
+# copy a tag to final panorama
+-Make
+-Model
+# add a text to a tag
+-Creator=Your Name
+# multi-line text with usage of placeholder (on Windows use &#xd;&#xa; instead of &#xa; for linebreak)
+-Description=Panorama, projection: %projection&#xa;stitched from %nrImages images
+# an example for list type tags, adding panorama and prevent duplication
+-Subject-=Panorama
+-Subject+=Panorama

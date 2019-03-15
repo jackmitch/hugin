@@ -1,0 +1,13 @@
+[Desktop Entry]
+Name=Hugin Calibrate Lens
+Comment=Characterise lens distortion
+GenericName=Lens Calibrator
+Categories=Graphics;
+Exec=calibrate_lens_gui
+Icon=hugin
+StartupNotify=false
+Terminal=false
+Type=Application
+Name[en_AU]=Hugin Calibrate Lens
+Name[cs]=Hugin kalibrace objetivů
+GenericName[cs]=Kalibrace objektivů

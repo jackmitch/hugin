@@ -1,0 +1,44 @@
+=head1 NAME
+
+hugin_lensdb - Tool for lens database maintenance
+
+
+=head1 USAGE
+
+=over
+
+=item B<hugin_lensdb [--recursive] --populate BASEPATH>
+
+Populate database with information from all pto files in given BASEPATH.
+With the --recursive switch all subfolders/directories will also be searched.
+
+=item B<hugin_lensdb --compress>
+
+Compresses the database by replacing single values with averaged values.
+
+=item B<hugin_lensdb --remove-lens=LENS>
+
+Removes given lens from the database.
+
+=item B<hugin_lensdb --remove-camera=MAKER|MODEL>
+
+Removes given camera from the database.
+
+=item B<hugin_lensdb --export-database=FILENAME>
+
+Export data from database to external file.
+
+=item B<hugin_lensdb --import-from-file=FILENAME>
+
+Import data from external file.
+
+=item B<-h>
+
+Shows help.
+
+=back
+
+Thomas Modes
+
+=head1 AUTHORS
+

@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="client-nojs">
+<head>
+<meta charset="UTF-8"/>
+<title>PTStitcher - PanoTools.org Wiki</title>
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE"/>
+<meta name="generator" content="MediaWiki 1.23.15"/>
+
+
+
+
+
+
+<style media="screen" type="text/css" title="Screen style sheet"> @import url(manual.css); </style>
+
+<style>a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: panotools_wiki:resourceloader:filter:minify-css:7:90730a7865ba4b50e0b837e1821ff0a3 */</style>
+
+
+
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/skins/vector/csshover.min.htc")}</style><![endif]--></head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-PTStitcher skin-vector action-view vector-animateLayout">
+		
+		
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+			
+						<h1 id="firstHeading" class="firstHeading" lang="en"><span dir="auto">PTStitcher</span></h1>
+						<div id="bodyContent">
+								<div id="siteSub">From PanoTools.org Wiki</div>
+								
+												
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><p><br />
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="PTStitcher.html#Preface"><span class="tocnumber">1</span> <span class="toctext">Preface</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="PTStitcher.html#Updates"><span class="tocnumber">2</span> <span class="toctext">Updates</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="PTStitcher.html#Intro"><span class="tocnumber">3</span> <span class="toctext">Intro</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="PTStitcher.html#Features"><span class="tocnumber">4</span> <span class="toctext">Features</span></a>
+<ul>
+<li class="toclevel-2 tocsection-5"><a href="PTStitcher.html#Accessible_by_GUI"><span class="tocnumber">4.1</span> <span class="toctext">Accessible by GUI</span></a></li>
+<li class="toclevel-2 tocsection-6"><a href="PTStitcher.html#Accessible_by_Script_or_other_Tool"><span class="tocnumber">4.2</span> <span class="toctext">Accessible by Script or other Tool</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-7"><a href="PTStitcher.html#Example_Script"><span class="tocnumber">5</span> <span class="toctext">Example Script</span></a>
+<ul>
+<li class="toclevel-2 tocsection-8"><a href="PTStitcher.html#p-line_options"><span class="tocnumber">5.1</span> <span class="toctext">p-line options</span></a></li>
+<li class="toclevel-2 tocsection-9"><a href="PTStitcher.html#i-line_options"><span class="tocnumber">5.2</span> <span class="toctext">i-line options</span></a></li>
+<li class="toclevel-2 tocsection-10"><a href="PTStitcher.html#o-line_options"><span class="tocnumber">5.3</span> <span class="toctext">o-line options</span></a></li>
+<li class="toclevel-2 tocsection-11"><a href="PTStitcher.html#m-line_options"><span class="tocnumber">5.4</span> <span class="toctext">m-line options</span></a></li>
+<li class="toclevel-2 tocsection-12"><a href="PTStitcher.html#z-line_options"><span class="tocnumber">5.5</span> <span class="toctext">z-line options</span></a></li>
+<li class="toclevel-2 tocsection-13"><a href="PTStitcher.html#C-line_options"><span class="tocnumber">5.6</span> <span class="toctext">C-line options</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-14"><a href="PTStitcher.html#Tutorials"><span class="tocnumber">6</span> <span class="toctext">Tutorials</span></a></li>
+<li class="toclevel-1 tocsection-15"><a href="PTStitcher.html#Calling_from_the_command_line"><span class="tocnumber">7</span> <span class="toctext">Calling from the command line</span></a></li>
+</ul>
+</div>
+
+<h2><a name="Preface"><span class="mw-headline">Preface</span></a></h2>
+<p>PTStitcher is one of the core applications of <a href="Panorama_tools.html" title="Panorama tools">Panorama tools</a>, together with <a href="PTOptimizer.html" title="PTOptimizer">PTOptimizer</a> and the Panorama Tools Plugins<a class="external" href="http://wiki.panotools.org/Panorama_Tools_Plugins">[*]</a>. 
+</p><p>For stitching panoramas you most probably won't get in contact with PTStitcher frequently, since the scripting is more or less completely done by the various GUI front-ends<a class="external" href="http://wiki.panotools.org/GUI_front-ends">[*]</a> and some tools like PanoCube<a class="external" href="http://wiki.panotools.org/PanoCube">[*]</a>.
+</p><p>However, there are several occasions where you might need to write or at least understand the scripts or call PTStitcher directly (for some batch tasks f.e.).
+</p>
+<h2><a name="Updates"><span class="mw-headline">Updates</span></a></h2>
+<p>The PTStitcher source code was never published, hence there are no changes possible to certain functions. But since a considerable part of its functionality is in <a href="Pano12.html" title="Pano12">pano12</a> library, PTStitcher benefits from every update of this core library. 
+</p><p>You can take PTStitcher from any of the panotools distribution on one of the Mirrors<a class="external" href="http://wiki.panotools.org/Mirrors">[*]</a>. In order to use new functionality you need a recent copy of <a href="Pano12.html" title="Pano12">pano12</a> library.  Note that only <i>win32</i>, <i>i386 Linux</i> and <i>mac classic</i> binary versions were ever made available, so you are out of luck if you use <i>OS X</i> or a 64bit operating system.
+</p><p>There is an open source replacement for PTStitcher called <a href="Nona.html" title="Nona">nona</a> in the <a href="Hugin.html" title="Hugin">hugin</a> project which has much (but not all) of the PTStitcher features.  Another open source replacement is <a href="PTmender.html" title="PTmender">PTmender</a>, part of the <a href="Pano12.html" title="Pano12">pano12</a> project at sourceforge.
+</p>
+<h2><a name="Intro"><span class="mw-headline">Intro</span></a></h2>
+<p>PTStitcher is script driven. The scripts are in pure text format and can be edited with any text or programming editor (on windows notepad will do). 
+</p><p>They are processed on a line by line basis. Each line starts with a special character (case sensitive) that indicates the meaning of the rest of the line. All other first in line characters are ignored and considered comments.
+</p>
+<h2><a name="Features"><span class="mw-headline">Features</span></a></h2>
+<p>Most features of PTStitcher are conveniently accessible by the usual GUIs (<a href="PTStitcher.html#Preface">see top</a>), but some are not.
+</p>
+<h3><a name="Accessible_by_GUI"><span class="mw-headline">Accessible by GUI</span></a></h3>
+<p>PTStitcher can stitch
+</p>
+<ul>
+<li> <a href="Equirectangular_Projection.html" title="Equirectangular Projection">spherical (equirectangular)</a>, <a href="Cylindrical_Projection.html" title="Cylindrical Projection">cylindrical</a>, <a href="Rectilinear_Projection.html" title="Rectilinear Projection">rectilinear</a> and <a href="Fisheye_Projection.html" title="Fisheye Projection">fisheyed (or mirror ball)</a> panoramas
+</li>
+<li> multi row panoramas
+</li>
+<li> panoramas from images that where shot tilted up or down.
+</li>
+<li> images from any lens (including spherical mirrors) 
+</li>
+<li> images with different <a href="Focal_Length.html" title="Focal Length">Focal Length</a> into one panorama
+</li>
+<li> flat images<a class="external" href="http://wiki.panotools.org/How_to_stitch_flat_images">[*]</a> like scanned maps.
+</li>
+</ul>
+<p>The capabilities of PTStitcher go far beyond panorama stitching: It can be used 
+</p>
+<ul>
+<li> to remap images between different <a href="Projections.html" title="Projections">Projections</a>
+</li>
+<li> to extract and insert rectilinear images<a class="external" href="http://wiki.panotools.org/Extracting_and_inserting_rectilinear_Views">[*]</a> from a spherical or cylindrical panorama.
+</li>
+<li> to remap a spherical panorama<a class="external" href="http://wiki.panotools.org/Edit_zenith_and_nadir_in_one_go_with_PTGui">[*]</a> such that <a href="Nadir.html" title="Nadir">Nadir</a> and <a href="Zenith.html" title="Zenith">Zenith</a> are editable.
+</li>
+<li> to down- or upsample images<a class="external" href="http://wiki.panotools.org/Upsampling_a_single_image_with_ptstitcher">[*]</a> with high quality interpolators.
+</li>
+<li> to <a href="Perspective_correction.html" title="Perspective correction">correct perspective distortion</a>.
+</li>
+</ul>
+<h3><a name="Accessible_by_Script_or_other_Tool"><span class="mw-headline">Accessible by Script or other Tool</span></a></h3>
+<p>PTStitcher can be used stand alone or with some other (non-GUI) Tool:
+</p>
+<ul>
+<li> together with some tool that separate color channels (ImageMagick<a class="external" href="http://wiki.panotools.org/ImageMagick">[*]</a>) to correct <a href="Chromatic_aberration.html" title="Chromatic aberration">Chromatic aberration</a>
+</li>
+<li> assembling 6 cube faces to an equirectangular panorama can be done by GUI but is more conveniently done by script, <a rel="nofollow" class="external text" href="http://www.pinlady.net/vr/#anchor3">batch file</a> or PanoCube Plus<a class="external" href="http://wiki.panotools.org/PanoCube">[*]</a>.
+</li>
+</ul>
+<h2><a name="Example_Script"><span class="mw-headline">Example Script</span></a></h2>
+<p>The updated original example script with lots of comments is below. Copied from <a rel="nofollow" class="external text" href="http://photocreations.ca/panotools/stitch.txt">Jim Watters' page</a>
+</p>
+<pre>
+#############           Example Script                  ##########################
+#                       to run PTStitcher
+#
+#
+# Only lines starting with 'p','o', i', or 'm' are read, 
+# so you can add comments and info as you like by using 
+# other line starting characters.  
+# The * character at the first of a line indicated the end of the script file.
+
+# The stitcher script must contain:
+# one 'p'- line describing the output image (eg Panorama)
+# one 'o'-line for each input image
+# one 'i' line for each input image that is optional
+# the 'm'-line is optional and allows you to specify modes for the optimization.
+# the 'C'-line is optional and allows morphing of control points.
+</pre>
+<h3><a name="p-line_options"><span class="mw-headline">p-line options</span></a></h3>
+<pre>
+# 'p'-line options
+# w1000        width in pixels
+# h600         height in pixels (default: width/2)
+# f0           projection format,
+#                  0 - rectilinear (for printing and viewing)
+#                  1 - Cylindrical (for Printing and QTVR)
+#                  2 - Equirectangular ( for Spherical panos), default
+#                  3 - full-frame fisheye
+# v360         horizontal field of view of panorama (default 360)
+# nPICT        Panorama file format, one of:
+#                  PICT          pict-file on macs, bmp-file on win (default)
+#                  PSD           single layer Photoshop file, 48bits supported
+#                  PNG           png-format, 48bits supported
+#                  TIFF          tiff-format, 48bits supported
+#                  PSD_mask      Photoshop file, one image per layer
+#                                  + shape mask &amp; feathered clip mask at overlap center
+#                  PSD_nomask    Photoshop file, one image per layer,
+#                  TIFF_mask     tiff-format, multi-file, one image per file, 48bit supported
+#                                  alpha layer with feathered clip mask at overlap center
+#                  TIFF_m        tiff-format, multi-file, one image per file, 48bit supported
+#                                  alpha layer with non-feathered clip mask at image border
+#                                  + shape mask &amp; non-feathered clip mask at image border
+#                  JPEG          Panoramic image in jpeg-format. Use with f1
+#                                  for IBM Hotmedia panoramas.
+#                  PAN           SmoothMove movie. Use only with f2.
+#                  IVR           LivePicture IVR movie
+#                                  cylindrical (format f1) or spherical (format f2)
+#                  IVR_java      LivePicture Java Panorama,
+#                                  cylindrical (format f1) or spherical (format f2)
+#                  VRML          VRML background node, use only with f2 for panoramas, or
+#                                  VRML-object for PTStereo
+#                  QTVR          Apple QTVR-panomovie. Use only with f1
+#                  3DMF          3DMF-object (PTStereo).
+#
+# n"QTVR w400 h300 c1"           additional viewer options in a quoted string together with format
+#              the following options are recognized:
+#                  w(width) and h(height) of viewer window (only QTVR on Macs)
+#                  c(codec: 0-JPEG, 1-Cinepak, 2-Sorenson) (only QTVR on Macs)
+#                  q(codec quality):
+#                     0-high,1-normal,2-low    QTVR on Macs
+#                     0-100(highest)           on other jpeg-formats (PAN, IVR, IVR_java, VRML)
+#                  g  progressive jpeg (0-no, 1-yes) (PAN, IVR, IVR_java, VRML)
+#                     Optimized JPEG (0-on(default), 2-disabled), (3-progressive with optimized disabled)
+#                  p  initial pan angle ( QTVR on Macs, VRML, IVR)
+#                  v  field of view (QTVR, VRML, IVR)
+#                  Many more options can be set by editing the viewer scripts
+# u10          width of feather for stitching all images. default:10
+# k1           attempt color &amp; brightness correction using image number as anchor
+# b1           attempt brightness correction with no color change using image number as anchor
+# d1           attempt color correction with no brightness change using image number as anchor
+#                  Do not use more than one of k, d, b.This is new method of correcting
+
+p w800 nPSD_mask
+</pre>
+<h3><a name="i-line_options"><span class="mw-headline">i-line options</span></a></h3>
+<pre>
+# The 'i' lines describe input images and is optional
+# nName        file name of the input image.
+#                  over ridable with command line parameters to PTStitcher
+
+i n"photo1.jpg"
+</pre>
+<h3><a name="o-line_options"><span class="mw-headline">o-line options</span></a></h3>
+<pre>
+# The 'o' lines describe input images. One line per image is required
+# The width and height of the image is obtained from image
+# f0           projection format,
+#                  0 - rectilinear (normal lenses)
+#                  1 - Panoramic (Scanning cameras like Noblex)
+#                  2 - Circular fisheye
+#                  3 - full-frame fisheye
+#                  4 - PSphere, equirectangular
+# v82          horizontal field of view of image (required)
+# y0           yaw angle (required)
+# p43          pitch angle (required)
+# r0           roll angle (required)
+# a,b,c        lens correction coefficients (optional)
+#                  (see http://www.fh-furtwangen.de/~dersch/barrel/barrel.html)
+# d,e          initial lens offset in pixels(defaults d0 e0, optional).
+#                  Used to correct for offset from center of image
+#                  d - horizontal offset,
+#                  e - vertical offset
+# g,t          initial lens shear.  Use to remove slight misalignment
+#                  of the line scanner relative to the film transport
+#                  g - horizontal shear
+#                  t - vertical shear
+# +buf         (obsolete, -buf and +buf are now ignored when stitching)
+#                  load and merge image with buffer
+# -buf         (obsolete, -buf and +buf are now ignored when stitching)
+#                  save result to buffer. The first 'o' line should
+#                  contain one '-buf' command, the last line one '+buf'
+#                  command, and all other lines both '+buf -buf'
+#                  Exception: remove all 'buf' commands when
+#                  creating Photoshop-files to preserve the original images.
+# u10          (obsolete, globally used on p line) width of feather for stitching. default:10
+# S100,600,100,800   Selection(l,r,t,b), Only pixels inside the rectangle will be used for conversion.
+#                       Original image size is used for all image parameters
+#                       (e.g. field-of-view) refer to the original image.
+#                       Selection can be outside image dimension.
+# C100,600,100,800   Crop(l,r,t,b), Only pixels inside the rectangle will be used for conversion.
+#                       Cropped image size is used for all image parameters
+#                       (e.g. field-of-view) refer to the cropped part of the image.
+# m20          (obsolete, use S &amp; C) ignore a frame 20 pixels wide. default: 0
+# mx100        (obsolete, use S &amp; C) crop to brightest rectangle with size 100x200;
+# my200        (obsolete, use S &amp; C) used only for circular fisheye images (f2)
+# s0           (obsolete, ignored, always blend) specify placement of seam between buffer and image:
+#                  0-middle of overlap('blend' ,default)
+#                  1- at edge of image ('paste').
+# o            (the small letter). Morph-to-fit using control points.
+# k0           (obsolete, use p line correction still used with plugin)
+#                  attempt color/brightness correction when merging image and buffer, one of:
+#                  0 - no correction(default);
+#                  1 - change image;
+#                  2 - change buffer;
+#                  3 - change both
+#                  this feature does not work very well!
+
+o f2 r0   p0    y0     v183    a0 b-0.1 c0  S100,600,100,800
+o f2 r0   p0    y180   v183    a0 b-0.1 c0  S100,600,100,800
+</pre>
+<h3><a name="m-line_options"><span class="mw-headline">m-line options</span></a></h3>
+<pre>
+# 'm'-line options
+# ----------------
+# Set mode for stitcher, not required
+#
+# g2.5         Set gamma value for internal computations (default 1.0)
+#                  See &lt;http://www.fh-furtwangen.de/~dersch/gamma/gamma.html&gt;
+# i2           Set interpolator, See &lt;http://www.fh-furtwangen.de/~dersch/interpolator/interpolator.html&gt;
+#                one of:
+#                   0 - poly3 (default)
+#                   1 - spline16,
+#                   2 - spline36,
+#                   3 - sinc256,
+#                   4 - spline64,
+#                   5 - bilinear,
+#                   6 - nearest neighbor,
+#                   7 - sinc1024
+#              \/ antialiasing filters \/ See &lt;http://www.pano2qtvr.com/dll_patch/&gt;
+#                   8 - Box
+#                   9 - Bartlett/Triangle
+#                   10 - Hermite
+#                   11 - Hanning
+#                   12 - Hamming
+#                   13 - Blackmann
+#                   14 - Gaussian 1/sqrt(2)
+#                   15 - Gaussian 1/2
+#                   16 - Quadardic
+#                   17 - Cubic
+#                   18 - Catmull-Rom
+#                   19 - Mitchell
+#                   20 - Lanczos2
+#                   21 - Lanczos3
+#                   22 - Blackman/Bessel
+#                   23 - Blackman/sinc
+#                   
+# f0               Invoke Faster Transformation also invoked by creating a file named "pano12_opt.txt" 
+#                   in the same foler as project with a line FAST_TRANSFORM
+
+m g1.5 i6 f0
+</pre>
+<h3><a name="z-line_options"><span class="mw-headline">z-line options</span></a></h3>
+<pre>
+# 'z'-lines options
+# ----------------
+# Extended Depth-Of-Field, not required
+#
+# Automatically determine, for every point in a picture, which of mumerous overlapping 
+# images has best focus.  Masks are generated to reveale the best focused parts of 
+# each image.  Feathering must be selected.  Used with PSD_mask or TIFF_mask file format
+# to edit the mask or with flattened file formats for flattened final result.   Does not
+# work if color and/or brightness correction are invoked.
+#
+# m2           mask type
+#                m0 hard-edged masks, mutually exclusive
+#                m1 hard-edged masks, stack of nested masks
+#                m2 blended masks, stack of nested masks (default &amp; strongly recommended)
+#                   (this option includes a smoothing computation that seems to help a lot.)
+# fN           focus estimation window size, N = halfwidth of window.
+#                Recommended value is 0.5% of image width, e.g. 4 pixels for an 800-pixel image.
+#                Computation cost for focus estimation increases proportional to N^2.  Default f4.
+# sN           smoothing window size, N = halfwidth of window.
+#                 Recommended value is 0.5% of image width, e.g. 4 pixels for an 800-pixel image.
+#                 Computation cost for smoothing increases proportional to N^2.  Default s4.
+
+z m2 f4 s4
+</pre>
+<h3><a name="C-line_options"><span class="mw-headline">C-line options</span></a></h3>
+<pre>
+# 'C' lines
+# ----------------
+# Morphing of control point lines
+# One line per point
+# Created automatically by optimizer
+#
+# i0           image
+# x363.726     starting x point position
+# y125.738     starting y point position
+# X363.838     morphed x point position
+# Y125.618     morphed y point position
+
+C i0  x363.726 y125.738 X363.838 Y125.618
+
+*
+Every thing after * is ignored.
+</pre>
+<h2><a name="Tutorials"><span class="mw-headline">Tutorials</span></a></h2>
+<p>Information on how to create and use PTStitcher scripts can be found on the web and on the wiki:
+</p>
+<ul>
+<li> The original PTStitcher Readme<a class="external" href="http://wiki.panotools.org/PTStitcher_Readme">[*]</a> file contains basic information.
+</li>
+<li> The updated original example script with lots of comments is found at <a rel="nofollow" class="external text" href="http://photocreations.ca/panotools/stitch.txt">Jim Watters' page</a>
+</li>
+<li> <a rel="nofollow" class="external text" href="http://www.path.unimelb.edu.au/~bernardk/tutorials/360/readme/index.html">Ben Kreunen</a> has an excellent list about the parameters of the p- o- and m-line and some example scripts.
+</li>
+<li> Frequently asked questions about PTStitcher including solutions to common problems are found at the unofficial <a rel="nofollow" class="external text" href="http://ptfaq.org/cgi-bin/fom?_recurse=1&amp;file=10">Panorama Tools FAQ</a>.
+</li>
+<li> On the wiki there are some techniques described that use PTStitcher:
+<ul>
+<li> Upsampling a single image with ptstitcher<a class="external" href="http://wiki.panotools.org/Upsampling_a_single_image_with_ptstitcher">[*]</a>
+</li>
+<li> Extracting and inserting rectilinear Views<a class="external" href="http://wiki.panotools.org/Extracting_and_inserting_rectilinear_Views">[*]</a>
+</li>
+</ul>
+</li>
+</ul>
+<h2><a name="Calling_from_the_command_line"><span class="mw-headline">Calling from the command line</span></a></h2>
+<p>PTStitcher can be called from the command line (this is what all GUIs do, too). More information in the PTStitcher Readme<a class="external" href="http://wiki.panotools.org/PTStitcher_Readme#Scripting_PTStitcher">[*]</a>
+</p>
+
+
+
+</div>								<div class="printfooter">
+				Retrieved from "http://wiki.panotools.org/index.php?title=PTStitcher&amp;oldid=13362<a class="external" href="http://wiki.panotools.org/index.php?title=PTStitcher&amp;oldid=13362">[*]</a>"				</div>
+												</div></div></body></html>

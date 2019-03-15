@@ -1,0 +1,54 @@
+[General]
+Description=Equi and cubic
+Help=Creates an equirectangular and the cube faces for given project
+StepCount=7
+IntermediateImageType=tif
+
+[Step0]
+Description=Remapping images
+Type=remap
+Arguments=-r ldr -m TIFF_m
+
+[Step1]
+Description=Blending with enblend
+Type=merge
+Input=all
+Program=enblend
+Result=%prefix%.tif
+Arguments=-f%size% --output=%result% %input%
+WrapArgument=-w
+
+[Step2]
+Description=Updating metadata
+Type=exiftool
+Result=%prefix%.tif
+Arguments=-overwrite_original -TagsFromFile %image0% -ImageDescription -Make -Model -Artist -WhitePoint -Copyright -GPS:all -DateTimeOriginal -CreateDate -UserComment -ColorSpace -OwnerName -SerialNumber %result%
+
+[Step3]
+Description=Create project file for cubic reprojection
+Type=modify
+File=%prefix%.tif
+Program=pto_gen
+Arguments=-o %prefix,_cubic.pto% %file% %file% %file% %file% %file% %file%
+
+[Step4]
+Description=Set positions for reprojection
+Type=modify
+File=%prefix%_cubic.pto
+Program=pto_var
+Arguments=-o %file% --set=y1=90,y2=180,y3=270,p4=-90,p5=90 %file%
+
+[Step5]
+Description=Set output size for reprojection
+Type=modify
+File=%prefix%_cubic.pto
+Program=pano_modify
+Arguments=-o %file% --projection=0 --fov=90 --canvas=%width*0.3183%x%width*0.3183% %file%
+
+[Step6]
+Description=Create cube faces
+Type=modify
+File=%prefix%_cubic.pto
+Program=nona
+Arguments=-m TIFF_m -o %prefix,_cube% %file%
+

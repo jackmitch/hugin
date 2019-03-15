@@ -1,0 +1,44 @@
+[General]
+Description=Multi-row (2 rows)
+Help=Assistant for multi-row panorama (2 rows, handles orphaned images)
+StepCount=7
+
+[Step0]
+Description=Assign rough positions
+Condition=not connected
+Program=pto_var
+Arguments=--set nrRows=2,overlap=20,imagesPerRow=ceil((imax+1)/nrRows),y=(i%(imagesPerRow)-(imagesPerRow-1)/2)*hfov*(1-overlap/100),p=-(floor(i/imagesPerRow)-(nrRows-1)/2)*deg(atan(2*height/width*tan(rad(hfov/2))))*(1-overlap/100),r=0 --output=%project% %project%
+
+[Step1]
+Description=Searching control points
+Condition=not connected
+Program=cpfind
+Arguments=--prealigned -v --output=%project% %project%
+
+[Step2]
+Description=Cleaning control points
+Condition=not connected
+Program=cpclean
+Arguments=--output=%project% %project%
+
+[Step3]
+Description=Connect orphaned images
+Condition=not connected
+Program=geocpset
+Arguments=--output=%project% %project%
+
+[Step4]
+Description=Searching line cp
+Condition=no line cp
+Program=linefind
+Arguments=--output=%project% %project%
+
+[Step5]
+Description=Optimizing
+Program=autooptimiser
+Arguments=-a -m -l -s --output=%project% %project%
+
+[Step6]
+Description=Searching for best crop...
+Program=pano_modify
+Arguments=--canvas=70% --crop=AUTO --output=%project% %project%

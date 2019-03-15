@@ -1,0 +1,11 @@
+--- a/include/vigra/hdf5impex.hxx
++++ b/include/vigra/hdf5impex.hxx
+@@ -1145,7 +1145,7 @@
+ 
+     bool isOpen() const
+     {
+-        return fileHandle_ != 0;
++        return fileHandle_ != (hid_t) 0;
+     }
+ 
+     bool isReadOnly() const

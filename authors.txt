@@ -1,0 +1,104 @@
+Pablo d'Angelo	Original Author, GSoC 2007 and 2008 mentor, German translation, original CMake build, original Windows SDK
+Florian Achleitner	GSoC 2010 Makefile lib
+Bart van Andel	Bugfix
+György Balló	original Hungarian translation
+Herbert Bay	GSoC 2007 mentor
+Kai-Uwe Behrmann	gui, panoviewer adds, original German translation
+Kornel Benko	maintenance CMake build
+Stephen Bennett	show points patch
+Jakub Bogusz	Polish translation
+Pavel Heimlich	Fixes Solaris build
+Luís Henrique Camargo Quiroz	Brazilian translation
+Albert Capellades Badia	original Catalan translation
+Carlos Eduardo G. Carvalho	Original FreeBSD port
+Milo Casagrande	Italian translation
+Vaclav Cerny	Czech translation
+Jean-Luc Coulon	original French translation
+Marco Cucinato	Italian translation
+Antoine Deleforge	GSoC 2010 patent free control point detector
+Ademar de Souza Reis Jr.	original Brazilian translation and translation related fixes
+Vasil Dimov	FreeBSD port maintainer
+Serhij Dubyk	initial Ukrainian translation
+Terry Duell	updated tutorials, Fedora tester and packager
+Alexandre Duret-Lutz	code
+Davide Fabbri	Bugfixes, Windows build
+Lu Fang	initial Chinese Simplified translation
+Skip Gaede	OS X build fixes
+Daniel German	bug fixes, GSoC mentor 2010
+Niels Giesen	Dutch translation
+Jorge González González	original Spanish translation
+Felix Hagemann	bug reports and patches
+Ed Halley	gui, documentation
+Robert Hart	bug reports and patches
+Stephan Hegel	Initial Doxygen configuration
+Juha Helminen	Code
+Brian Hoffmann	German translation of NSIS windows installer
+Lajos Höss	Hungarian translation
+Ad Huikeshoven	automated Windows snapshot builds
+Iouri Ivliev	bug fixes
+Kay F. Jahnke	Python scripting interface, bug fixes
+Marek Januszewski	Code, initial Polish translation
+Alexandre Jenny	SpaceTransform class, GSoC 2008 mentoring
+Jing Jin	GSoC 2007 deghosting
+Lukáš Jirkovský	GSoC 2009 deghosting in enfuse
+Gareth Jones	British English translation
+Ewing Kang	Traditional Chinese translation
+Allard Katan	Windows installer
+Guido Kohlmeyer	German translation, Windows SDK, bug fixes
+Erik Krause	Enfuse and enblend droplets for Windows
+Uwe Koch Kronberg	Spanish translation
+Marco Kuder	GSoC 2008 batch processor
+Rick Langford	Traditional Chinese original translation and updates
+Homin Lee	initial Korean translation
+James Legg	GSoC 2008 OpenGL fast preview, GSoC 2009 new layout, GSoC 2010 mentor
+Yuval Levy	Community Builder, GSoC admin 2007 and 2009, GSoC mentor 2007 and 2008, Windows build, original Windows installer (0.7.0 and 0.8.0 InnoSetup), bugfixes, fixes Italian translation, release manager 2009.2 and 2010.4
+Wim Lewis	Code fix
+Roger Luethi	Code
+Darko Makreshanski	GSoC 2010 Overview for Fast Preview
+Caolán McNamara	code fix
+Cristian Marchi	Italian translation and 2010 artwork
+Zoran Mesec	GSoC 2007 feature detector, GSoC 2008 mentor, initial Slovenian translation
+Andreas Metzler	Debian packaging
+Niklas Mischkulnig	OS X builder
+Andrew Mihal	original author of enblend, enfuse, nona-gpu. GSoC 2009 mentor
+Thomas Modes	statistic CP cleaner, multi-row CP detection, masking tool, GSoC 2010 mentor, code and bugfixes
+Tiziano Müller	code
+Vladimir Nadvornik	Stereo images alignment
+John Navas	MSI installer
+Victor Nezhelskiy	Russian translation
+José Alejandro Carrillo Neira	Spanish translation
+Tim Nugent	GSoC 2008 Celeste, GSoC 2009 Lens Calibration, GSoC 2010 mentor
+Simon Oosthoek	Dutch translation
+Anael Orlinski	initial control point detector
+Emanuele Panz	Windows installer (2010.02 transition to Nullsoft NSIS)
+Gerry Patterson	Code
+Eduardo Pérez Esteban	Spanish translation
+Matthew Petroff	Windows installer and icons
+Bruno Postle	initial packaging, website, documentation, initial British English translation, GSoC 2009 mentor, GSoC 2010 admin and mentor, release manager on many occasions including 2010.02
+Thomas Pryds	Danish translation
+Alexandre Prokoudine	Initial Russian translation, GSoC 2008 admin
+Jozef Riha	original Slovak translation
+Marijn Ros	bug reports and patches
+Maider Likona Santamarina	Basque translation
+Joachim Schneider	German translation
+Tom Sharpless	Windows build, GSoC 2009 mentor, code
+Jiri Slaby	original Czech translation
+Ryan Sleevi	Windows 64-bit patches, patches and SDK
+Michał Smoczyk	Polish translation
+Svetoslav Stefanov	Bulgarian initial translation
+Gary Stein	Autocrop functionality
+Hajime Taira	Japanese translation
+Riz Thon	French translation
+Dave Tow	cmake patch
+Brent Townshend	code and bug fixes
+Masahiro Kitagawa	Japanese translation updates
+Lorenz Trischberger	German translation
+Ken Turkowski	code
+Ippei Ukai	MacOSX port, initial Japanese translation, GSoC 2007 code refactoring
+Harry van der Wolf	original Dutch translation, OSX build
+Mihai Varzaru	Original Romanian translation
+Luca Vascon	splash screen, icons, original Italian translation
+Fabian Wetzel	Panoglview
+Ulf Wilhelmson	original Swedish translation
+Douglas Wilkins	packaging, translation, bugfixes
+Ziv Yaniv	RanSaC code

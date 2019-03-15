@@ -1,0 +1,19 @@
+[General]
+Description=Median of stacked images
+Help=Output median image of stacked images
+StepCount=2
+IntermediateImageType=tif
+
+[Step0]
+Description=Remapping images
+Type=remap
+Arguments=-v -r ldr -m TIFF_m
+Keep=0
+
+[Step1]
+Description=Calculating median
+Type=merge
+Input=all
+Program=hugin_stacker
+Result=%prefix%.tif
+Arguments=--output=%result% --mode=median %input%

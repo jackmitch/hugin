@@ -1,0 +1,566 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<resource xmlns="http://www.wxwidgets.org/wxxrc" version="2.5.3.0">
+  <object class="wxPanel" name="images_panel">
+    <style>wxTAB_TRAVERSAL</style>
+    <object class="wxBoxSizer">
+      <orient>wxVERTICAL</orient>
+      <object class="sizeritem">
+        <object class="wxPanel" name="image_control_panel">
+          <object class="wxBoxSizer">
+            <orient>wxVERTICAL</orient>
+            <object class="sizeritem">
+              <object class="wxBoxSizer">
+                <orient>wxHORIZONTAL</orient>
+                <object class="sizeritem">
+                  <object class="ImagesTreeList" name="images_tree_ctrl"/>
+                  <option>1</option>
+                  <flag>wxEXPAND</flag>
+                </object>
+                <object class="sizeritem">
+                  <object class="wxBoxSizer">
+                    <object class="sizeritem">
+                      <object class="wxStaticText" name="images_mode_text">
+                        <style>wxALIGN_CENTRE</style>
+                      </object>
+                      <flag>wxALL|wxEXPAND</flag>
+                      <border>3</border>
+                    </object>
+                    <object class="sizeritem">
+                      <object class="wxStaticText">
+                        <label>Group by:</label>
+                      </object>
+                    </object>
+                    <object class="sizeritem">
+                      <object class="wxChoice" name="images_group_mode"/>
+                      <flag>wxEXPAND|wxALL</flag>
+                      <border>3</border>
+                    </object>
+                    <object class="sizeritem">
+                      <object class="wxBoxSizer">
+                        <object class="sizeritem">
+                          <object class="wxStaticText" name="images_text_overlap">
+                            <label>Minimum overlap:</label>
+                            <hidden>1</hidden>
+                          </object>
+                          <flag>wxALL|wxALIGN_CENTRE_VERTICAL</flag>
+                          <border>3</border>
+                        </object>
+                        <object class="sizeritem">
+                          <object class="wxTextCtrl" name="images_overlap">
+                            <size>65,-1</size>
+                            <tooltip>Minimum overlap for output stack detection</tooltip>
+                            <enabled>0</enabled>
+                            <hidden>1</hidden>
+                            <style>wxTE_PROCESS_ENTER</style>
+                          </object>
+                          <flag>wxALIGN_CENTRE_VERTICAL</flag>
+                        </object>
+                        <orient>wxHORIZONTAL</orient>
+                      </object>
+                      <flag>wxALL|wxALIGN_CENTRE_HORIZONTAL</flag>
+                      <border>3</border>
+                    </object>
+                    <object class="sizeritem">
+                      <object class="wxBoxSizer">
+                        <object class="sizeritem">
+                          <object class="wxStaticText" name="images_text_maxev">
+                            <label>Maximum Ev difference:</label>
+                            <hidden>1</hidden>
+                          </object>
+                          <flag>wxALL|wxALIGN_CENTRE_VERTICAL</flag>
+                          <border>3</border>
+                        </object>
+                        <object class="sizeritem">
+                          <object class="wxTextCtrl" name="images_maxev">
+                            <size>65,-1</size>
+                            <tooltip>Maximum EV difference for detection of output layers</tooltip>
+                            <enabled>0</enabled>
+                            <hidden>1</hidden>
+                            <style>wxTE_PROCESS_ENTER</style>
+                          </object>
+                          <flag>wxALIGN_CENTRE_VERTICAL</flag>
+                        </object>
+                        <orient>wxHORIZONTAL</orient>
+                      </object>
+                      <flag>wxALL|wxALIGN_CENTRE_HORIZONTAL</flag>
+                      <border>3</border>
+                    </object>
+                    <object class="sizeritem">
+                      <object class="wxRadioBox" name="images_column_radiobox">
+                        <label>Display</label>
+                        <content>
+                          <item>General</item>
+                          <item>EXIF data</item>
+                          <item>Positions</item>
+                          <item>Lens parameters</item>
+                          <item>Photometric parameters</item>
+                        </content>
+                        <selection>0</selection>
+                        <style>wxRA_SPECIFY_COLS</style>
+                      </object>
+                      <flag>wxEXPAND|wxALL</flag>
+                      <border>3</border>
+                    </object>
+                    <orient>wxVERTICAL</orient>
+                    <object class="sizeritem" platform="win">
+                      <object class="wxStaticBitmap">
+                        <bitmap>data/hugin.png</bitmap>
+                      </object>
+                      <option>1</option>
+                      <flag>wxEXPAND|wxALL</flag>
+                      <border>6</border>
+                    </object>
+                  </object>
+                  <flag>wxALL|wxEXPAND</flag>
+                  <border>6</border>
+                </object>
+              </object>
+              <option>1</option>
+              <flag>wxEXPAND</flag>
+            </object>
+            <object class="sizeritem">
+              <object class="wxBoxSizer">
+                <object class="sizeritem">
+                  <object class="wxBoxSizer">
+                    <object class="sizeritem">
+                      <object class="wxBoxSizer">
+                        <orient>wxVERTICAL</orient>
+                        <object class="sizeritem">
+                          <object class="wxStaticText">
+                            <label>Lens type</label>
+                            <font>
+                              <style platform="mac">normal</style>
+                              <family platform="mac">swiss</family>
+                              <weight>bold</weight>
+                              <size platform="mac">12</size>
+                            </font>
+                          </object>
+                          <flag>wxBOTTOM</flag>
+                          <border>6</border>
+                        </object>
+                        <object class="sizeritem">
+                          <object class="wxBoxSizer">
+                            <object class="sizeritem">
+                              <object class="wxButton" name="action_add_images">
+                                <label>Add images...</label>
+                              </object>
+                              <flag>wxALIGN_CENTRE_VERTICAL|wxALL</flag>
+                              <border>12</border>
+                            </object>
+                            <object class="sizeritem">
+                              <object class="wxGridBagSizer">
+                                <object class="sizeritem">
+                                  <object class="wxStaticText">
+                                    <label>Lens type:</label>
+                                  </object>
+                                  <flag>wxALIGN_RIGHT|wxALIGN_CENTRE_VERTICAL</flag>
+                                  <cellpos>0,0</cellpos>
+                                </object>
+                                <object class="sizeritem">
+                                  <object class="wxChoice" name="images_lens_type"/>
+                                  <flag>wxEXPAND</flag>
+                                  <cellpos>0,1</cellpos>
+                                  <cellspan>0,5</cellspan>
+                                </object>
+                                <object class="sizeritem">
+                                  <object class="wxStaticText">
+                                    <label>Focal length:</label>
+                                  </object>
+                                  <flag>wxALIGN_RIGHT|wxALIGN_CENTRE_VERTICAL</flag>
+                                  <cellpos>1,0</cellpos>
+                                </object>
+                                <object class="sizeritem">
+                                  <object class="wxTextCtrl" name="images_focal_length">
+                                    <style>wxTE_PROCESS_ENTER</style>
+                                  </object>
+                                  <minsize>60,-1</minsize>
+                                  <cellpos>1,1</cellpos>
+                                </object>
+                                <object class="sizeritem">
+                                  <object class="wxStaticText">
+                                    <label>mm</label>
+                                  </object>
+                                  <flag>wxALIGN_CENTRE_VERTICAL|wxRIGHT</flag>
+                                  <border>6</border>
+                                  <cellpos>1,2</cellpos>
+                                </object>
+                                <object class="sizeritem">
+                                  <object class="wxStaticText">
+                                    <label>Focal length multiplier:</label>
+                                  </object>
+                                  <flag>wxALIGN_RIGHT|wxALIGN_CENTRE_VERTICAL</flag>
+                                  <cellpos>1,3</cellpos>
+                                </object>
+                                <object class="sizeritem">
+                                  <object class="wxTextCtrl" name="images_crop_factor">
+                                    <style>wxTE_PROCESS_ENTER</style>
+                                  </object>
+                                  <minsize>60,-1</minsize>
+                                  <cellpos>1,4</cellpos>
+                                </object>
+                                <object class="sizeritem">
+                                  <object class="wxStaticText">
+                                    <label>x</label>
+                                  </object>
+                                  <flag>wxALIGN_CENTRE_VERTICAL</flag>
+                                  <cellpos>1,5</cellpos>
+                                </object>
+                                <vgap>3</vgap>
+                                <hgap>3</hgap>
+                              </object>
+                            </object>
+                            <orient>wxHORIZONTAL</orient>
+                          </object>
+                          <option>1</option>
+                          <flag>wxEXPAND</flag>
+                        </object>
+                      </object>
+                      <flag>wxEXPAND</flag>
+                    </object>
+                    <object class="sizeritem">
+                      <object class="wxBoxSizer">
+                        <object class="spacer">
+                          <size>0,20</size>
+                        </object>
+                        <object class="sizeritem">
+                          <object class="wxStaticText">
+                            <label>Feature Matching</label>
+                            <font>
+                              <style platform="mac">normal</style>
+                              <family platform="mac">swiss</family>
+                              <weight>bold</weight>
+                              <size platform="mac">12</size>
+                            </font>
+                          </object>
+                          <flag>wxBOTTOM|wxEXPAND</flag>
+                          <border>6</border>
+                        </object>
+                        <object class="sizeritem">
+                          <object class="wxFlexGridSizer">
+                            <object class="sizeritem">
+                              <object class="wxStaticText">
+                                <label>Settings:</label>
+                              </object>
+                              <flag>wxALIGN_RIGHT|wxALIGN_CENTRE_VERTICAL</flag>
+                            </object>
+                            <object class="sizeritem">
+                              <object class="wxChoice" name="cpdetector_settings"/>
+                              <option>1</option>
+                              <flag>wxEXPAND</flag>
+                            </object>
+                            <object class="sizeritem">
+                              <object class="wxButton" name="images_feature_matching">
+                                <label>Create control points</label>
+                                <tooltip>Run selected control point detector on the selected images</tooltip>
+                              </object>
+                              <flag>wxALIGN_CENTRE_VERTICAL</flag>
+                            </object>
+                            <cols>3</cols>
+                            <vgap>0</vgap>
+                            <hgap>3</hgap>
+                            <growablecols>1</growablecols>
+                          </object>
+                          <option>1</option>
+                          <flag>wxEXPAND</flag>
+                        </object>
+                        <orient>wxVERTICAL</orient>
+                      </object>
+                      <flag>wxEXPAND</flag>
+                    </object>
+                    <object class="sizeritem">
+                      <object class="wxBoxSizer">
+                        <orient>wxVERTICAL</orient>
+                        <object class="spacer">
+                          <size>0,20</size>
+                        </object>
+                        <object class="sizeritem">
+                          <object class="wxStaticText">
+                            <label>Optimize</label>
+                            <font>
+                              <style platform="mac">normal</style>
+                              <family platform="mac">swiss</family>
+                              <weight>bold</weight>
+                              <size platform="mac">12</size>
+                            </font>
+                          </object>
+                          <flag>wxBOTTOM</flag>
+                          <border>6</border>
+                        </object>
+                        <object class="sizeritem">
+                          <object class="wxFlexGridSizer">
+                            <object class="sizeritem">
+                              <object class="wxStaticText">
+                                <label>Geometric:</label>
+                              </object>
+                              <flag>wxALIGN_RIGHT|wxALIGN_CENTRE_VERTICAL</flag>
+                            </object>
+                            <object class="sizeritem">
+                              <object class="wxChoice" name="images_optimize_mode">
+                                <content>
+                                  <item/>
+                                </content>
+                                <selection>0</selection>
+                              </object>
+                              <option>1</option>
+                              <flag>wxEXPAND|wxALIGN_CENTRE_VERTICAL</flag>
+                            </object>
+                            <object class="sizeritem">
+                              <object class="wxButton" name="images_optimize">
+                                <label>Calculate</label>
+                              </object>
+                            </object>
+                            <object class="sizeritem">
+                              <object class="wxStaticText">
+                                <label>Photometric:</label>
+                              </object>
+                              <flag>wxALIGN_RIGHT|wxALIGN_CENTRE_VERTICAL</flag>
+                            </object>
+                            <object class="sizeritem">
+                              <object class="wxChoice" name="images_photo_optimize_mode">
+                                <content>
+                                  <item/>
+                                </content>
+                                <selection>0</selection>
+                              </object>
+                              <option>1</option>
+                              <flag>wxEXPAND|wxALIGN_CENTRE_VERTICAL</flag>
+                            </object>
+                            <object class="sizeritem">
+                              <object class="wxButton" name="images_photo_optimize">
+                                <label>Calculate</label>
+                              </object>
+                            </object>
+                            <cols>3</cols>
+                            <vgap>3</vgap>
+                            <hgap>6</hgap>
+                          </object>
+                          <flag>wxLEFT|wxEXPAND</flag>
+                          <border>12</border>
+                        </object>
+                      </object>
+                      <flag>wxEXPAND</flag>
+                    </object>
+                    <orient>wxVERTICAL</orient>
+                  </object>
+                  <flag>wxALL|wxEXPAND</flag>
+                  <border>6</border>
+                </object>
+                <object class="sizeritem">
+                  <object class="wxStaticLine">
+                    <style>wxLI_VERTICAL</style>
+                  </object>
+                  <flag>wxALL|wxEXPAND</flag>
+                  <border>10</border>
+                </object>
+                <object class="sizeritem">
+                  <object class="wxBoxSizer" name="images_selected_image">
+                    <orient>wxVERTICAL</orient>
+                    <object class="sizeritem">
+                      <object class="wxStaticText">
+                        <label>Selected Image</label>
+                        <font>
+                          <style platform="mac">normal</style>
+                          <family platform="mac">swiss</family>
+                          <weight>bold</weight>
+                          <size platform="mac">12</size>
+                        </font>
+                      </object>
+                      <flag>wxBOTTOM</flag>
+                      <border>6</border>
+                    </object>
+                    <orient>wxVERTICAL</orient>
+                    <object class="sizeritem">
+                      <object class="wxBoxSizer">
+                        <object class="sizeritem">
+                          <object class="wxStaticBitmap" name="images_selected_image"/>
+                          <option>1</option>
+                          <flag>wxEXPAND</flag>
+                        </object>
+                        <orient>wxVERTICAL</orient>
+                      </object>
+                      <option>1</option>
+                      <flag>wxEXPAND</flag>
+                    </object>
+                  </object>
+                  <option>1</option>
+                  <flag>wxALL|wxEXPAND</flag>
+                  <border>6</border>
+                </object>
+                <object class="spacer">
+                  <size>10,0</size>
+                </object>
+                <orient>wxHORIZONTAL</orient>
+              </object>
+              <flag>wxEXPAND</flag>
+            </object>
+          </object>
+          <style>wxTAB_TRAVERSAL</style>
+        </object>
+        <option>1</option>
+        <flag>wxEXPAND</flag>
+      </object>
+    </object>
+  </object>
+  <object class="wxDialog" name="dlg_focallength">
+    <object class="wxBoxSizer">
+      <orient>wxVERTICAL</orient>
+      <object class="sizeritem">
+        <object class="wxBoxSizer">
+          <orient>wxVERTICAL</orient>
+          <object class="sizeritem">
+            <object class="wxStaticText" name="lensdlg_message">
+              <label>a0123456789012345678901234567890123456789
+b
+c
+d
+e</label>
+            </object>
+            <flag>wxEXPAND|wxADJUST_MINSIZE</flag>
+          </object>
+          <object class="spacer">
+            <size>0,10</size>
+          </object>
+          <object class="sizeritem">
+            <object class="wxBoxSizer">
+              <object class="sizeritem">
+                <object class="wxStaticText">
+                  <label>Lens type:</label>
+                  <style>wxALIGN_RIGHT</style>
+                </object>
+                <flag>wxRIGHT|wxALIGN_CENTRE_VERTICAL</flag>
+                <border>6</border>
+              </object>
+              <object class="sizeritem">
+                <object class="wxChoice" name="lensdlg_type_choice">
+                  <content>
+                    <item/>
+                  </content>
+                </object>
+              </object>
+              <object class="spacer">
+                <option>1</option>
+                <flag>wxEXPAND</flag>
+              </object>
+              <object class="sizeritem">
+                <object class="wxButton" name="lensdlg_load_lens_button">
+                  <label>Load lens data...</label>
+                  <style/>
+                </object>
+                <flag>wxLEFT</flag>
+                <border>12</border>
+              </object>
+              <orient>wxHORIZONTAL</orient>
+            </object>
+            <flag>wxLEFT|wxEXPAND</flag>
+            <border>12</border>
+          </object>
+          <object class="spacer">
+            <size>0,10</size>
+          </object>
+          <object class="sizeritem">
+            <object class="wxStaticText">
+              <label>Enter horizontal field of view (HFOV) or focal length and crop factor:</label>
+            </object>
+            <flag>wxEXPAND</flag>
+          </object>
+          <object class="spacer">
+            <size>0,6</size>
+          </object>
+          <object class="sizeritem">
+            <object class="wxFlexGridSizer">
+              <object class="sizeritem">
+                <object class="wxStaticText">
+                  <label>HFOV (v):</label>
+                  <style>wxALIGN_RIGHT</style>
+                </object>
+                <flag>wxALIGN_CENTRE_VERTICAL</flag>
+              </object>
+              <object class="sizeritem">
+                <object class="wxTextCtrl" name="lensdlg_hfov_text"/>
+                <minsize>60,-1</minsize>
+              </object>
+              <object class="sizeritem">
+                <object class="wxStaticText">
+                  <label>degrees</label>
+                </object>
+                <flag>wxRIGHT|wxALIGN_CENTRE_VERTICAL</flag>
+              </object>
+              <object class="spacer">
+                <size>0,0</size>
+              </object>
+              <object class="spacer">
+                <size>0,0</size>
+              </object>
+              <object class="spacer">
+                <size>0,0</size>
+              </object>
+              <object class="sizeritem">
+                <object class="wxStaticText">
+                  <label>Focal length:</label>
+                  <style>wxALIGN_RIGHT</style>
+                </object>
+                <flag>wxALIGN_CENTRE_VERTICAL</flag>
+              </object>
+              <object class="sizeritem">
+                <object class="wxTextCtrl" name="lensdlg_focallength_text"/>
+                <minsize>60,-1</minsize>
+              </object>
+              <cols>6</cols>
+              <vgap>6</vgap>
+              <hgap>6</hgap>
+              <object class="sizeritem">
+                <object class="wxStaticText">
+                  <label>mm</label>
+                </object>
+                <flag>wxRIGHT|wxALIGN_CENTRE_VERTICAL</flag>
+              </object>
+              <object class="sizeritem">
+                <object class="wxStaticText">
+                  <label>Focal length multiplier:</label>
+                </object>
+                <flag>wxLEFT|wxALIGN_CENTRE_VERTICAL</flag>
+                <border>20</border>
+              </object>
+              <object class="sizeritem">
+                <object class="wxTextCtrl" name="lensdlg_cropfactor_text"/>
+                <minsize>60,-1</minsize>
+              </object>
+              <object class="sizeritem">
+                <object class="wxStaticText">
+                  <label>x</label>
+                </object>
+                <flag>wxRIGHT|wxALIGN_CENTRE_VERTICAL</flag>
+              </object>
+            </object>
+            <flag>wxLEFT|wxEXPAND</flag>
+            <border>12</border>
+          </object>
+          <object class="spacer">
+            <size>0,6</size>
+          </object>
+        </object>
+        <flag>wxALL</flag>
+        <border>10</border>
+      </object>
+      <object class="sizeritem">
+        <object class="wxStdDialogButtonSizer">
+          <object class="button">
+            <object class="wxButton" name="wxID_OK">
+              <label>OK</label>
+              <default>1</default>
+            </object>
+          </object>
+          <object class="button">
+            <object class="wxButton" name="wxID_CANCEL">
+              <label>Cancel</label>
+            </object>
+          </object>
+        </object>
+        <flag>wxALL|wxEXPAND</flag>
+        <border>5</border>
+      </object>
+    </object>
+    <title>Camera and Lens data</title>
+    <style>wxCAPTION|wxRESIZE_BORDER</style>
+  </object>
+</resource>

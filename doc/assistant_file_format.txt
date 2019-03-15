@@ -1,0 +1,46 @@
+# File format for configure assistant of hugin_executor
+# extension: .assistant
+# Format: basically an ini file format
+#         each line is an own entry
+#         in form key=value
+#         no multi-line entries allowed
+#         comments start with # or ;
+#         grouped into several sections
+
+# General section
+[General]
+# short description, displayed in GUI, required
+Description=Short description
+# help text, displayed in GUI
+Help=A short help text
+# number of steps to follow
+StepCount=2
+
+# for each step an own step section has to follow
+[Step0]
+# optional description
+# is shown in progress window when running this step
+Description=Searching control points...
+
+# program name, can also include a full path
+Program=cpfind
+
+# arguments for the command, use placeholder %project% 
+# for project filename and %image0% for first image
+# file
+Arguments=--multirow --output=%project% %project%
+
+# Condition, if the step should be executed
+# recognized are:
+#   no cp  - project contains no control points
+#   not connected - images are not connected
+#   no line cp - no line control points
+#   single image - project contains only a single image
+# keep in mind, that the condition is only evaluated at the start
+# (it is not updated after running a command in the sequence)
+Condition=not connected
+
+[Step1]
+Description=Optimizing...
+Program=autooptimiser
+Arguments=-a -m -l -s --output=%project% %project%

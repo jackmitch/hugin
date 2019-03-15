@@ -1,0 +1,38 @@
+[General]
+Description=Standard assistant
+Help=Assistant for normal panorama
+StepCount=6
+
+[Step0]
+Description=Searching control points
+Condition=not connected
+Program=cpfind
+Arguments=--celeste --multirow -v --output=%project% %project%
+
+[Step1]
+Description=Check result
+Condition=not connected
+Program=checkpto
+Arguments=%project%
+
+[Step2]
+Description=Cleaning control points
+Condition=not connected
+Program=cpclean
+Arguments=--output=%project% %project%
+
+[Step3]
+Description=Searching line cp
+Condition=no line cp
+Program=linefind
+Arguments=--output=%project% %project%
+
+[Step4]
+Description=Optimizing
+Program=autooptimiser
+Arguments=-a -m -l -s --output=%project% %project%
+
+[Step5]
+Description=Searching for best crop...
+Program=pano_modify
+Arguments=--canvas=70% --crop=AUTO --output=%project% %project%

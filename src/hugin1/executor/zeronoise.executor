@@ -1,0 +1,19 @@
+[General]
+Description=Zero-noise output
+Help=Use with a single stack (with different exposures) to reduce noise
+StepCount=2
+IntermediateImageType=tif
+
+[Step0]
+Description=Remapping images
+Type=remap
+Arguments=-r ldr -m TIFF_m --clip-exposure
+
+[Step1]
+Description=Merge all expsoures
+Type=merge
+Input=all
+Program=enfuse
+Result=%prefix%.tif
+Arguments=-f%size% --output=%result% %input%
+WrapArgument=-w

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<resource xmlns="http://www.wxwidgets.org/wxxrc" version="2.5.3.0">
+  <object class="wxMenuBar" name="batch_menu">
+    <object class="wxMenu" name="file_menu">
+      <label>&amp;File</label>
+      <object class="wxMenuItem" name="menu_add">
+        <label>Add project to stitching &amp;queue...</label>
+        <help>Adds a project to the stitching queue</help>
+      </object>
+      <object class="wxMenuItem" name="menu_add_assistant">
+        <label>Add project to &amp;assistant queue...</label>
+        <help>Adds a project to the assistant queue</help>
+      </object>
+      <object class="wxMenuItem" name="menu_remove">
+        <label>&amp;Remove project</label>
+        <help>Removes selected project from the batch list</help>
+      </object>
+      <object class="wxMenu" name="search_dir_menu">
+        <object class="wxMenuItem" name="menu_adddir">
+          <label>&amp;Project files...</label>
+          <help>Appends all project files from a directory and subdirectories</help>
+        </object>
+        <object class="wxMenuItem" name="menu_searchpano">
+          <label>&amp;Images...</label>
+          <help>Searches in directories for image files suitable for panoramas</help>
+        </object>
+        <label>Search &amp;directory for...</label>
+        <help>Searches in directories for existing projects or for images</help>
+      </object>
+      <object class="separator"/>
+      <object class="wxMenuItem" name="menu_open">
+        <label>&amp;Open batch</label>
+        <help>Opens a batch file with a list of projects</help>
+      </object>
+      <object class="wxMenuItem" name="menu_save">
+        <label>&amp;Save batch</label>
+        <help>Saves a batch file with a list of projects</help>
+      </object>
+      <object class="wxMenuItem" name="menu_clear">
+        <label>&amp;Clear batch</label>
+        <help>Clears the batch list</help>
+      </object>
+      <object class="separator"/>
+      <object class="wxMenuItem" name="menu_tray">
+        <label>&amp;Minimize to tray</label>
+        <checkable>1</checkable>
+        <enabled>0</enabled>
+      </object>
+      <object class="separator"/>
+      <object class="wxMenuItem" name="menu_exit">
+        <label>&amp;Quit</label>
+        <help>Exit program</help>
+      </object>
+    </object>
+    <object class="wxMenu" name="help_menu">
+      <label>&amp;Help</label>
+      <object class="wxMenuItem" name="menu_help">
+        <label>Batch Stitcher &amp;help</label>
+        <accel>F1</accel>
+        <help>Open Batch Stitcher help.</help>
+      </object>
+    </object>
+  </object>
+</resource>

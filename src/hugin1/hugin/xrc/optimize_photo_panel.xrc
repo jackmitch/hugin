@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<resource xmlns="http://www.wxwidgets.org/wxxrc" version="2.5.3.0">
+  <object class="wxPanel" name="optimize_photo_panel">
+    <object class="wxBoxSizer">
+      <orient>wxVERTICAL</orient>
+      <object class="sizeritem">
+        <object class="wxBoxSizer">
+          <object class="sizeritem">
+            <object class="wxBoxSizer">
+              <orient>wxVERTICAL</orient>
+              <object class="sizeritem">
+                <object class="wxStaticText">
+                  <label>Photometric Optimization</label>
+                  <font>
+                    <style platform="mac">normal</style>
+                    <family platform="mac">swiss</family>
+                    <weight>bold</weight>
+                    <size platform="mac">12</size>
+                  </font>
+                </object>
+                <flag>wxBOTTOM</flag>
+                <border>6</border>
+              </object>
+              <object class="sizeritem">
+                <object class="wxBoxSizer">
+                  <object class="sizeritem">
+                    <object class="wxBoxSizer">
+                      <object class="sizeritem">
+                        <object class="wxStaticText" name="optimize_photo_panel_information_text">
+                          <label>Any variables below which are marked [x] will be optimized.
+Unmarked variables [ ] will act as references or anchors.</label>
+                        </object>
+                        <option>1</option>
+                        <flag>wxEXPAND</flag>
+                      </object>
+                      <object class="spacer">
+                        <size>-1,12</size>
+                      </object>
+                      <object class="sizeritem">
+                        <object class="wxCheckBox" name="optimize_photo_panel_only_active_images">
+                          <label>Only use activated images.</label>
+                          <tooltip>Only consider images selected in preview window. Useful to avoid errors due to badly fitting images, such as the nadir image in most fisheye panoramas</tooltip>
+                        </object>
+                        <flag>wxALIGN_LEFT</flag>
+                      </object>
+                      <orient>wxVERTICAL</orient>
+                    </object>
+                    <option>1</option>
+                    <flag>wxEXPAND</flag>
+                  </object>
+                  <object class="sizeritem">
+                    <object class="wxBoxSizer">
+                      <object class="sizeritem">
+                        <object class="wxButton" name="optimize_photo_panel_optimize">
+                          <label>Optimize now!</label>
+                          <tooltip>execute the PTOptimizer engine</tooltip>
+                        </object>
+                        <flag>wxALL|wxEXPAND</flag>
+                        <border>3</border>
+                      </object>
+                      <object class="sizeritem">
+                        <object class="wxButton" name="optimize_photo_panel_reset">
+                          <label>Reset</label>
+                        </object>
+                        <flag>wxALL|wxEXPAND</flag>
+                        <border>3</border>
+                      </object>
+                      <orient>wxVERTICAL</orient>
+                    </object>
+                    <flag>wxEXPAND</flag>
+                  </object>
+                  <orient>wxHORIZONTAL</orient>
+                </object>
+                <option>1</option>
+                <flag>wxEXPAND</flag>
+                <border>6</border>
+              </object>
+            </object>
+            <flag>wxALL|wxEXPAND</flag>
+            <border>6</border>
+          </object>
+          <object class="spacer">
+            <size>0,15</size>
+          </object>
+          <object class="sizeritem">
+            <object class="wxSplitterWindow" name="optimize_photo_panel_splitter">
+              <object class="wxPanel">
+                <object class="wxBoxSizer">
+                  <orient>wxVERTICAL</orient>
+                  <object class="sizeritem">
+                    <object class="wxStaticText">
+                      <label>Image variables:</label>
+                      <font>
+                        <style platform="mac">normal</style>
+                        <family platform="mac">swiss</family>
+                        <weight>bold</weight>
+                        <size platform="mac">12</size>
+                      </font>
+                    </object>
+                    <flag>wxBOTTOM</flag>
+                    <border>6</border>
+                  </object>
+                  <object class="sizeritem">
+                    <object class="ImagesTreeList" name="optimize_photo_panel_images"/>
+                    <option>1</option>
+                    <flag>wxEXPAND</flag>
+                  </object>
+                </object>
+              </object>
+              <object class="wxPanel">
+                <object class="wxBoxSizer">
+                  <orient>wxVERTICAL</orient>
+                  <object class="sizeritem">
+                    <object class="wxStaticText">
+                      <label>Camera and Lens variables:</label>
+                      <font>
+                        <style platform="mac">normal</style>
+                        <family platform="mac">swiss</family>
+                        <weight>bold</weight>
+                        <size platform="mac">12</size>
+                      </font>
+                    </object>
+                    <flag>wxBOTTOM</flag>
+                    <border>6</border>
+                  </object>
+                  <object class="sizeritem">
+                    <object class="ImagesTreeList" name="optimize_photo_panel_lens"/>
+                    <option>1</option>
+                    <flag>wxEXPAND</flag>
+                  </object>
+                </object>
+              </object>
+              <orientation>horizontal</orientation>
+              <minsize>100</minsize>
+              <style>wxSP_LIVE_UPDATE</style>
+            </object>
+            <option>1</option>
+            <flag>wxEXPAND</flag>
+          </object>
+          <orient>wxVERTICAL</orient>
+        </object>
+        <option>1</option>
+        <flag>wxLEFT|wxRIGHT|wxEXPAND</flag>
+        <border>6</border>
+      </object>
+    </object>
+    <style>wxTAB_TRAVERSAL</style>
+  </object>
+</resource>

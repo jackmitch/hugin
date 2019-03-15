@@ -1,0 +1,48 @@
+=for
+Copyright 2008 Cyril Brulebois <cyril.brulebois@enst-bretagne.fr>
+Licensed under the same terms as the hugin package itself.
+=end
+
+
+=head1 NAME
+
+hugin_stitch_project - Stitch a hugin project
+
+=head1 SYNOPSIS
+
+B<hugin_stitch_project> [options] [I<<project>> I<<images>> ...]
+
+
+=head1 DESCRIPTION
+
+A GUI tool to stitch a single hugin project.
+
+=head1 OPTIONS
+
+=over
+
+=item B<-h|--help>
+
+Show help message
+
+=item B<-o|--output>=<str>
+
+Output prefix
+
+=item B<-t|--threads>=<num>
+
+Number of threads
+
+=item B<-d|--delete>
+
+Delete .pto file after stitching
+
+=back
+
+=head1 AUTHORS
+
+Written by Pablo d'Angelo. Also contains contributions from Douglas Wilkins, Ippei Ukai, Ed Halley, Bruno Postle, Gerry Patterson and Brent Townshend.
+
+This man page was written by Cyril Brulebois
+<cyril.brulebois@enst-bretagne.fr> and is licensed under the same
+terms as the hugin package itself.

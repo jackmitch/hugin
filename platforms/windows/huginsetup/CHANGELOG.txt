@@ -1,0 +1,76 @@
+* -DEV
+  + Removed Autopano-sift-C options --projection %f,%v (suggested by Aron H)
+  + Added Installer Script to Hugin/WindowsSetup Sourceforge repository
+  + Refactored Control Points generators scripts (names and languages string)
+  + Control Point Generators are now stored into their own directory $INSTALLDIR$/CPG/
+  + Added Autopano-SIFT-C multirow/stacked from Lemur build (autopano.exe and generatekeys.exe)
+  + Added Clean registry settings during install (thanks Matthew Petroff)
+
+* 0.2.11 (2010-09-25)
+  + Refactored install Functions
+  + Added Panomatic SourceForge mirror select (thanks Matthew Petroff)
+  + Fixed CPGs settings for default to latest installed CPG (thanks Matthew Petroff)
+
+* 0.2.10 (2010-09-21)
+  + Fixed "Download Failed" messages for Control Points Generators
+  + Fixed Autopano-SIFT-C 2.5.2 download and setup bug
+  + Fixed Autopano-103 settings (wrong zip extraction)
+  + Fixed Match-n-shift settings (doubled .exe extension)
+
+* 0.2.8 (2010-09-15)
+  + Using Match-n-shift version 2008-02-19 (from my Dropbox folder)
+  + Added Stacked/Multirow settings (tests needed)
+  + Added Italian translation to ControlPointDisclaimer
+  + Added HuginSetup.nsi with CMake settings directives (needs works)
+  + Updated 32/64bit installers for 2010.2.0-beta2 build (thanks to Aron Helser - www.aronhelser.com )
+
+* 0.2.6 (2010-09-06)
+  + Refactored Control Point Generators scripts (moved into own folder)
+  + Splitted 32/64bit installers
+  + Added CP align_image_stack.exe
+  + Fixed Autopano-sift-c read-only selection
+  + Removed debug messages during CP registry settings writing
+  + Some code clean-up
+
+* 0.2.0 (2010-09-04):
+  + Added more ControlPoints: Match-n-shift and Autopano-sift-C
+  + Added control point settings in Hugin Settings (install and go!)
+  + Source code available on BitBucket: https://bitbucket.org/thePanz/huginsetup
+  
+* 0.1.28 (2010-09-03):
+  + Fixed Italian translation (thanks to Cristian)
+  + Added room for Control Point Disclaimer translation (waiting for translations)
+  
+* 0.1.26 (2010-09-03):
+  + Fixed German translation (thanks again to Brian)
+  + Added support for 32bit/64bit installers (common Documentation used)
+  + Added installer for 64bit version (using Tom Glastonbury and AronH builds)
+  
+* 0.1.24 (2010-09-02):
+  + Added more translatable strings
+  + Added (partial) German translation (thanks to Brian)
+  + Added (partial) Italian translation
+  
+* 0.1.22 (2010-09-02):
+  + Added translatable message strings
+  + Added fake Italian translation
+  
+* 0.1.20 (2010-09-02):
+  + Added finish page (install/uninstall)
+  + Fixed component wrong sizes
+  
+* 0.1.18 (2010-09-02):
+  + Added Documentation install options
+  + Added Control Panel uninstall size
+  
+* 0.1.17 (2010-09-01):
+  + Fixed default install path trailing slash
+  + Fixed Windows permissions bug (thanks to Brian)
+  
+* 0.1.16 (2010-09-01):
+  + Added ControlPoints disclaimer
+  + Changed Licenses/Plugins folder structure
+  
+* 0.1.15 (2010-08-31):
+  + Added Welcome screen logo
+  + First public release

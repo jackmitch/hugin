@@ -1,0 +1,55 @@
+[General]
+Description=Assistant for dual lens images
+Help=Assistant for images shot with dual lens camera/one shot panoramic cameras
+StepCount=9
+
+[Step0]
+Description=Prepare initial pto file
+Condition=single image
+Program=pto_gen
+Arguments=--output=%project% --projection=2 --fov=393 %image0% %image0%
+
+[Step1]
+Description=Setting same advanced settings
+Condition=single image
+Program=pto_var
+Arguments=--output=%project% --unlink=v0,d0,e0 --set=y1=180,d0=-0.25*width,d1=0.25*width,e=0 --crop=50%,94% %project%
+
+[Step2]
+Description=Searching control points
+Condition=not connected
+Program=cpfind
+Arguments=-v --output=%project% %project%
+
+[Step3]
+Description=Check result
+Condition=not connected
+Program=checkpto
+Arguments=%project%
+
+[Step4]
+Description=Cleaning control points
+Condition=not connected
+Program=cpclean
+Arguments=--output=%project% %project%
+
+[Step5]
+Description=Searching line cp
+Condition=no line cp
+Program=linefind
+Arguments=--output=%project% %project%
+
+[Step6]
+Description=Setting same advanced settings
+Program=pto_var
+Arguments=--output=%project% --opt=y,p,r,v,d,e %project%
+
+[Step7]
+Description=Optimizing
+Program=autooptimiser
+Arguments=-n --output=%project% %project%
+
+[Step8]
+Description=Searching for best crop...
+Program=pano_modify
+Arguments=--projection=2 --fov=360x180 --canvas=70% --crop=AUTO --output=%project% %project%

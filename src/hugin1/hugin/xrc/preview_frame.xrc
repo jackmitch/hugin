@@ -1,0 +1,1156 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<resource xmlns="http://www.wxwidgets.org/wxxrc" version="2.5.3.0">
+  <object class="wxToolBar" name="preview_toolbar">
+    <style>wxTB_FLAT|wxTB_TEXT</style>
+    <object class="tool" name="preview_center_tool">
+      <bitmap>data/center_pano.png</bitmap>
+      <tooltip>Center the preview horizontally</tooltip>
+      <label>Center</label>
+    </object>
+    <object class="tool" name="preview_fit_pano_tool">
+      <bitmap>data/fit_pano.png</bitmap>
+      <longhelp>Show the whole panorama</longhelp>
+      <tooltip>Estimate field of view</tooltip>
+      <label>Fit</label>
+    </object>
+    <object class="tool" name="preview_straighten_pano_tool">
+      <bitmap>data/straighten_pano.png</bitmap>
+      <tooltip>Automatically straighten a wavy horizon</tooltip>
+      <label>Straighten</label>
+    </object>
+    <object class="tool" name="preview_num_transform">
+      <bitmap>data/preview_num_transform.png</bitmap>
+      <tooltip>Numerical Transform</tooltip>
+      <label>Num. Transf.</label>
+    </object>
+    <object class="separator"/>
+    <object class="tool" name="preview_auto_update_tool">
+      <bitmap>data/preview_auto_update.png</bitmap>
+      <tooltip>Auto update</tooltip>
+      <label>Auto</label>
+      <toggle>1</toggle>
+    </object>
+    <object class="tool" name="preview_update_tool">
+      <bitmap>data/reload.png</bitmap>
+      <tooltip>Update preview</tooltip>
+      <label>Update</label>
+    </object>
+    <object class="separator"/>
+    <object class="tool" name="preview_show_all_tool">
+      <bitmap>data/preview_show_all.png</bitmap>
+      <tooltip>Show all images</tooltip>
+      <label>All</label>
+    </object>
+    <object class="tool" name="preview_show_none_tool">
+      <bitmap>data/preview_show_none.png</bitmap>
+      <tooltip>Show none of the images</tooltip>
+      <label>None</label>
+    </object>
+    <bitmapsize>22,22</bitmapsize>
+    <packing>3</packing>
+  </object>
+  <object class="wxDialog" name="dlg_numtrans">
+    <title>Numerical Transform</title>
+    <object class="wxBoxSizer">
+      <orient>wxVERTICAL</orient>
+      <object class="sizeritem">
+        <object class="wxBoxSizer">
+          <orient>wxHORIZONTAL</orient>
+          <object class="sizeritem">
+            <object class="wxStaticText">
+              <label>Yaw:</label>
+            </object>
+            <flag>wxLEFT|wxRIGHT|wxALIGN_CENTRE_VERTICAL</flag>
+            <border>5</border>
+          </object>
+          <object class="sizeritem">
+            <object class="wxTextCtrl" name="numtrans_yaw">
+              <value>0</value>
+            </object>
+            <flag>wxRIGHT|wxALIGN_CENTRE_VERTICAL</flag>
+            <border>10</border>
+          </object>
+          <object class="sizeritem">
+            <object class="wxStaticText">
+              <label>Pitch:</label>
+            </object>
+            <flag>wxRIGHT|wxALIGN_CENTRE_VERTICAL</flag>
+            <border>5</border>
+          </object>
+          <object class="sizeritem">
+            <object class="wxTextCtrl" name="numtrans_pitch">
+              <value>0</value>
+            </object>
+            <flag>wxRIGHT|wxALIGN_CENTRE_VERTICAL</flag>
+            <border>10</border>
+          </object>
+          <object class="sizeritem">
+            <object class="wxStaticText">
+              <label>Roll:</label>
+            </object>
+            <flag>wxRIGHT|wxALIGN_CENTRE_VERTICAL</flag>
+            <border>5</border>
+          </object>
+          <object class="sizeritem">
+            <object class="wxTextCtrl" name="numtrans_roll">
+              <value>0</value>
+            </object>
+            <flag>wxRIGHT|wxALIGN_CENTRE_VERTICAL</flag>
+            <border>10</border>
+          </object>
+        </object>
+        <flag>wxALL</flag>
+        <border>10</border>
+      </object>
+      <object class="sizeritem">
+        <object class="wxStdDialogButtonSizer">
+          <object class="button">
+            <object class="wxButton" name="wxID_OK">
+              <label>OK</label>
+            </object>
+          </object>
+          <object class="button">
+            <object class="wxButton" name="wxID_CANCEL">
+              <label>Cancel</label>
+            </object>
+          </object>
+        </object>
+        <flag>wxALL|wxEXPAND</flag>
+        <border>10</border>
+      </object>
+    </object>
+  </object>
+  <object class="wxPanel" name="overview_command_panel">
+    <object class="wxBoxSizer">
+      <orient>wxHORIZONTAL</orient>
+      <object class="sizeritem">
+        <object class="wxStaticText">
+          <label>Mode:</label>
+        </object>
+        <flag>wxALL|wxALIGN_CENTRE_VERTICAL</flag>
+        <border>5</border>
+      </object>
+      <object class="sizeritem">
+        <object class="wxChoice" name="overview_mode_choice">
+          <label>Mode:</label>
+          <content/>
+        </object>
+        <option>1</option>
+        <flag>wxALL|wxEXPAND</flag>
+        <border>5</border>
+      </object>
+    </object>
+  </object>
+  <object class="wxPanel" name="mode_panel">
+    <object class="wxBoxSizer">
+      <orient>wxHORIZONTAL</orient>
+      <object class="sizeritem">
+        <object class="wxNotebook" name="mode_toolbar_notebook">
+          <object class="notebookpage">
+            <object class="wxPanel" name="assistant_mode_panel">
+              <object class="wxBoxSizer">
+                <orient>wxHORIZONTAL</orient>
+                <object class="sizeritem">
+                  <object class="wxBoxSizer">
+                    <object class="sizeritem">
+                      <object class="wxButton" name="ass_load_images_button">
+                        <label>1. Load images...</label>
+                        <tooltip>Load a series of images</tooltip>
+                      </object>
+                      <flag>wxALIGN_CENTRE_HORIZONTAL|wxBOTTOM</flag>
+                      <border>6</border>
+                    </object>
+                    <object class="sizeritem">
+                      <object class="wxStaticText" name="ass_load_images_text">
+                        <label>no images loaded</label>
+                      </object>
+                      <flag>wxALIGN_CENTRE_HORIZONTAL</flag>
+                    </object>
+                    <orient>wxVERTICAL</orient>
+                  </object>
+                  <flag>wxALL|wxALIGN_CENTRE_VERTICAL</flag>
+                  <border>12</border>
+                </object>
+                <object class="sizeritem">
+                  <object class="wxGridBagSizer">
+                    <object class="sizeritem">
+                      <object class="wxStaticText">
+                        <label>Lens type:</label>
+                      </object>
+                      <flag>wxALIGN_RIGHT|wxALIGN_CENTRE_VERTICAL</flag>
+                      <cellpos>0,0</cellpos>
+                    </object>
+                    <object class="sizeritem">
+                      <object class="wxChoice" name="ass_lens_type"/>
+                      <flag>wxEXPAND</flag>
+                      <cellpos>0,1</cellpos>
+                      <cellspan>0,5</cellspan>
+                    </object>
+                    <object class="sizeritem">
+                      <object class="wxStaticText">
+                        <label>Focal length:</label>
+                      </object>
+                      <flag>wxALIGN_RIGHT|wxALIGN_CENTRE_VERTICAL</flag>
+                      <cellpos>1,0</cellpos>
+                    </object>
+                    <object class="sizeritem">
+                      <object class="wxTextCtrl" name="ass_focal_length">
+                        <style>wxTE_PROCESS_ENTER</style>
+                      </object>
+                      <minsize>60,-1</minsize>
+                      <cellpos>1,1</cellpos>
+                    </object>
+                    <object class="sizeritem">
+                      <object class="wxStaticText">
+                        <label>mm</label>
+                      </object>
+                      <flag>wxALIGN_CENTRE_VERTICAL|wxRIGHT</flag>
+                      <border>6</border>
+                      <cellpos>1,2</cellpos>
+                    </object>
+                    <object class="sizeritem">
+                      <object class="wxStaticText">
+                        <label>Focal length multiplier:</label>
+                      </object>
+                      <flag>wxALIGN_RIGHT|wxALIGN_CENTRE_VERTICAL</flag>
+                      <cellpos>1,3</cellpos>
+                    </object>
+                    <object class="sizeritem">
+                      <object class="wxTextCtrl" name="ass_crop_factor">
+                        <style>wxTE_PROCESS_ENTER</style>
+                      </object>
+                      <minsize>60,-1</minsize>
+                      <cellpos>1,4</cellpos>
+                    </object>
+                    <object class="sizeritem">
+                      <object class="wxStaticText">
+                        <label>x</label>
+                      </object>
+                      <flag>wxALIGN_CENTRE_VERTICAL</flag>
+                      <cellpos>1,5</cellpos>
+                    </object>
+                    <vgap>3</vgap>
+                    <hgap>3</hgap>
+                  </object>
+                  <flag>wxALIGN_CENTRE_VERTICAL|wxALL</flag>
+                  <border>6</border>
+                </object>
+                <object class="sizeritem">
+                  <object class="wxStaticLine">
+                    <size>2,-1</size>
+                  </object>
+                  <flag>wxEXPAND</flag>
+                </object>
+                <object class="sizeritem">
+                  <object class="wxButton" name="ass_align_button">
+                    <label>2. Align...</label>
+                    <tooltip>Align all images. Creates control points and optimizes the image positions</tooltip>
+                  </object>
+                  <flag>wxALL|wxALIGN_CENTRE_VERTICAL</flag>
+                  <border>12</border>
+                </object>
+                <object class="sizeritem">
+                  <object class="wxStaticLine">
+                    <size>2,-1</size>
+                  </object>
+                  <flag>wxEXPAND</flag>
+                </object>
+                <object class="sizeritem">
+                  <object class="wxButton" name="ass_create_button">
+                    <label>3. Create panorama...</label>
+                    <tooltip>Create a high resolution panorama</tooltip>
+                  </object>
+                  <flag>wxALL|wxALIGN_CENTRE_VERTICAL</flag>
+                  <border>12</border>
+                </object>
+                <object class="sizeritem">
+                  <object class="wxStaticLine">
+                    <size>2,-1</size>
+                  </object>
+                  <flag>wxEXPAND</flag>
+                </object>
+                <object class="sizeritem">
+                  <object class="wxStaticText" name="ass_status_text">
+                    <style>wxALIGN_RIGHT | wxST_NO_AUTORESIZE</style>
+                  </object>
+                  <option>1</option>
+                  <flag>wxALL|wxALIGN_CENTRE_VERTICAL</flag>
+                  <border>3</border>
+                </object>
+              </object>
+            </object>
+            <label>Assistant</label>
+            <selected>1</selected>
+            <bitmap>data/hugin_small.png</bitmap>
+          </object>
+          <object class="notebookpage">
+            <object class="wxPanel" name="preview_mode_panel">
+              <object class="wxBoxSizer">
+                <orient>wxHORIZONTAL</orient>
+                <object class="sizeritem">
+                  <object class="wxBoxSizer">
+                    <object class="sizeritem">
+                      <object class="wxToggleButton" name="preview_identify_toggle_button">
+                        <bitmap>data/identify_tool.png</bitmap>
+                        <bitmapposition>wxTOP</bitmapposition>
+                        <style>wxBU_EXACTFIT</style>
+                        <label>Identify</label>
+                        <tooltip>Match images to their numbers</tooltip>
+                      </object>
+                    </object>
+                    <orient>wxVERTICAL</orient>
+                  </object>
+                  <flag>wxALL|wxALIGN_CENTRE_VERTICAL</flag>
+                  <border>5</border>
+                </object>
+                <object class="sizeritem">
+                  <object class="wxStaticLine">
+                    <size>2,-1</size>
+                  </object>
+                  <flag>wxEXPAND</flag>
+                </object>
+                <object class="sizeritem">
+                  <object class="wxBoxSizer">
+                    <object class="sizeritem">
+                      <object class="wxCheckBox" name="preview_photometric_tool">
+                        <label>Photometrics</label>
+                        <checked>1</checked>
+                        <tooltip>Use full photometric correction (slow)</tooltip>
+                      </object>
+                      <flag>wxALL</flag>
+                      <border>2</border>
+                    </object>
+                    <object class="sizeritem">
+                      <object class="wxCheckBox" name="preview_control_point_tool">
+                        <label>Show control points</label>
+                        <tooltip>Show lines between the ends of each control point. The longer the line, the bigger the error.</tooltip>
+                      </object>
+                      <flag>wxALL</flag>
+                      <border>2</border>
+                    </object>
+                    <orient>wxVERTICAL</orient>
+                  </object>
+                  <flag>wxLEFT|wxRIGHT|wxALIGN_CENTRE_VERTICAL</flag>
+                  <border>4</border>
+                </object>
+                <object class="sizeritem">
+                  <object class="wxStaticLine">
+                    <size>2,-1</size>
+                  </object>
+                  <flag>wxEXPAND</flag>
+                </object>
+                <object class="sizeritem">
+                  <object class="wxBoxSizer">
+                    <object class="sizeritem">
+                      <object class="wxBoxSizer">
+                        <object class="sizeritem">
+                          <object class="wxStaticText">
+                            <label>Blend mode:</label>
+                          </object>
+                          <flag>wxEXPAND</flag>
+                        </object>
+                        <object class="sizeritem">
+                          <object class="wxChoice" name="blend_mode_choice"/>
+                          <flag>wxEXPAND</flag>
+                        </object>
+                        <orient>wxVERTICAL</orient>
+                      </object>
+                      <flag>wxALL|wxALIGN_CENTRE_VERTICAL</flag>
+                      <border>3</border>
+                    </object>
+                    <object class="sizeritem">
+                      <object class="wxBoxSizer">
+                        <orient>wxHORIZONTAL</orient>
+                        <object class="sizeritem">
+                          <object class="wxStaticText" name="">
+                            <label>EV:</label>
+                          </object>
+                          <flag>wxLEFT|wxRIGHT|wxALIGN_CENTRE_VERTICAL</flag>
+                          <border>5</border>
+                        </object>
+                        <object class="sizeritem">
+                          <object class="wxBitmapButton" name="exposure_default_button">
+                            <bitmap stock_id="wxART_REDO"/>
+                            <tooltip>Sets the exposure value of the panorama to the mean exposure of all images.</tooltip>
+                          </object>
+                          <flag>wxLEFT|wxRIGHT|wxALIGN_CENTRE_VERTICAL</flag>
+                          <border>5</border>
+                        </object>
+                        <object class="sizeritem">
+                          <object class="wxTextCtrl" name="exposure_text">
+                            <size>50,-1</size>
+                            <style>wxTE_PROCESS_ENTER</style>
+                          </object>
+                          <flag>wxALIGN_CENTRE_VERTICAL</flag>
+                        </object>
+                        <object class="sizeritem">
+                          <object class="wxSpinButton" name="exposure_spin">
+                            <value>0</value>
+                            <min>-32767</min>
+                            <max>32768</max>
+                          </object>
+                          <flag>wxALIGN_CENTRE_VERTICAL</flag>
+                        </object>
+                        <object class="sizeritem">
+                          <object class="wxToggleButton" name="preview_color_picker_toggle_button">
+                            <style>wxBU_EXACTFIT</style>
+                            <bitmap>data/preview_white_balance.png</bitmap>
+                            <bitmapposition>wxTOP</bitmapposition>
+                            <label>Gray picker</label>
+                            <tooltip>Correct global white balance by selecting a neutral gray area.</tooltip>
+                          </object>
+                          <flag>wxALIGN_CENTRE_VERTICAL</flag>
+                        </object>
+                        <object class="sizeritem">
+                          <object class="wxToggleButton" name="preview_edit_cp_toggle_button">
+                            <style>wxBU_EXACTFIT</style>
+                            <bitmap>data/preview_control_point_tool.png</bitmap>
+                            <bitmapposition>wxTOP</bitmapposition>
+                            <label>Edit CP</label>
+                            <tooltip>Create or delete control points in selected rectangle.</tooltip>
+                          </object>
+                          <flag>wxALIGN_CENTRE_VERTICAL</flag>
+                        </object>
+                      </object>
+                      <flag>wxALIGN_CENTRE_VERTICAL</flag>
+                    </object>
+                    <orient>wxHORIZONTAL</orient>
+                  </object>
+                  <flag>wxLEFT|wxRIGHT|wxEXPAND</flag>
+                  <border>5</border>
+                </object>
+                <object class="sizeritem">
+                  <object class="wxStaticLine">
+                    <size>2,-1</size>
+                  </object>
+                  <flag>wxEXPAND</flag>
+                </object>
+                <object class="sizeritem">
+                  <object class="wxBoxSizer">
+                    <object class="sizeritem">
+                      <object class="wxStaticText">
+                        <label>Background:</label>
+                      </object>
+                      <flag>wxLEFT|wxRIGHT|wxALIGN_CENTRE_VERTICAL</flag>
+                      <border>5</border>
+                    </object>
+                    <object class="sizeritem">
+                      <flag>wxGROW|wxALL</flag>
+                      <option>1</option>
+                      <border>5</border>
+                      <object class="wxColourPickerCtrl" name="preview_background">
+                        <value>#000000</value>
+                        <style>wxCLRP_DEFAULT_STYLE</style>
+                      </object>
+                    </object>
+                    <orient>wxHORIZONTAL</orient>
+                  </object>
+                  <flag>wxLEFT|wxALIGN_CENTRE_VERTICAL</flag>
+                  <border>4</border>
+                </object>
+              </object>
+              <tooltip>Preview panorama</tooltip>
+            </object>
+            <label>Preview</label>
+            <bitmap>data/gl_preview_small.png</bitmap>
+          </object>
+          <object class="notebookpage">
+            <object class="wxPanel" name="layout_mode_panel">
+              <object class="wxBoxSizer">
+                <orient>wxHORIZONTAL</orient>
+                <object class="sizeritem">
+                  <object class="wxStaticText">
+                    <label>Scale:</label>
+                    <wrap>5</wrap>
+                  </object>
+                  <flag>wxTOP|wxBOTTOM|wxLEFT|wxALIGN_CENTRE_VERTICAL</flag>
+                  <border>5</border>
+                </object>
+                <object class="sizeritem">
+                  <object class="wxSlider" name="layout_scale_slider">
+                    <size>150,-1</size>
+                    <value>50</value>
+                    <min>1</min>
+                    <max>99</max>
+                    <tickfreq>10</tickfreq>
+                    <pagesize>20</pagesize>
+                    <style>wxSL_AUTOTICKS|wxSL_BOTH</style>
+                  </object>
+                  <flag>wxALL|wxALIGN_CENTRE_VERTICAL</flag>
+                  <border>5</border>
+                </object>
+                <object class="sizeritem">
+                  <object class="wxStaticLine">
+                    <size>2,-1</size>
+                  </object>
+                  <flag>wxEXPAND</flag>
+                </object>
+                <object class="sizeritem">
+                  <object class="wxStaticText">
+                    <label>* A gray line indicates there are no control points, but the image pair overlaps.
+* Green, yellow and red lines indicate good, medium and poor alignment.
+* Click a line to edit the associated images in the Control Points tab.</label>
+                  </object>
+                  <flag>wxALL|wxALIGN_CENTRE_VERTICAL</flag>
+                  <border>5</border>
+                </object>
+              </object>
+            </object>
+            <label>Layout</label>
+            <bitmap>data/preview_layout_small.png</bitmap>
+          </object>
+          <object class="notebookpage">
+            <label>Projection</label>
+            <object class="wxPanel" name="projection_panel">
+              <object class="wxBoxSizer">
+                <orient>wxHORIZONTAL</orient>
+                <object class="sizeritem">
+                  <object class="wxButton" name="preview_fit_pano_tool2">
+                    <label>Fit</label>
+                    <bitmap>data/fit_pano.png</bitmap>
+                    <bitmapposition>wxTOP</bitmapposition>
+                    <direction>wxTOP</direction>
+                    <style>wxBU_EXACTFIT</style>
+                    <tooltip>Estimate field of view</tooltip>
+                  </object>
+                  <flag>wxALL|wxALIGN_CENTRE_VERTICAL</flag>
+                  <border>5</border>
+                </object>
+                <object class="sizeritem">
+                  <object class="wxBoxSizer">
+                    <orient>wxHORIZONTAL</orient>
+                    <object class="sizeritem">
+                      <object class="wxStaticText">
+                        <label>Field of View:</label>
+                      </object>
+                      <flag>wxLEFT|wxRIGHT|wxALIGN_CENTRE_VERTICAL</flag>
+                      <cellpos>0,0</cellpos>
+                      <cellspan>0,4</cellspan>
+                      <border>5</border>
+                    </object>
+                    <object class="sizeritem">
+                      <object class="wxTextCtrl" name="pano_text_hfov">
+                        <size>50,-1</size>
+                        <style>wxTE_PROCESS_ENTER</style>
+                      </object>
+                      <flag>wxALIGN_CENTRE_VERTICAL</flag>
+                    </object>
+                    <object class="sizeritem">
+                      <object class="wxStaticText">
+                        <label>×</label>
+                      </object>
+                      <flag>wxLEFT|wxRIGHT|wxALIGN_CENTRE_VERTICAL</flag>
+                      <border>4</border>
+                    </object>
+                    <object class="sizeritem">
+                      <object class="wxTextCtrl" name="pano_text_vfov">
+                        <size>50,-1</size>
+                        <style>wxTE_PROCESS_ENTER</style>
+                      </object>
+                      <flag>wxALIGN_CENTRE_VERTICAL</flag>
+                    </object>
+                  </object>
+                  <flag>wxLEFT|wxRIGHT|wxALIGN_CENTRE_VERTICAL</flag>
+                  <border>5</border>
+                </object>
+                <object class="sizeritem">
+                  <object class="wxStaticLine">
+                    <size>2,-1</size>
+                  </object>
+                  <flag>wxEXPAND</flag>
+                </object>
+                <object class="sizeritem">
+                  <object class="wxChoice" name="projection_choice">
+                    <content/>
+                  </object>
+                  <flag>wxLEFT|wxRIGHT|wxALIGN_CENTRE_VERTICAL</flag>
+                  <border>5</border>
+                </object>
+                <object class="sizeritem">
+                  <object class="wxStaticLine">
+                    <size>2,-1</size>
+                  </object>
+                  <flag>wxEXPAND</flag>
+                </object>
+                <object class="sizeritem">
+                  <object class="wxBoxSizer">
+                    <object class="sizeritem">
+                      <object class="wxStaticText">
+                        <label>Guides:</label>
+                      </object>
+                      <flag>wxLEFT|wxRIGHT</flag>
+                      <border>5</border>
+                    </object>
+                    <object class="sizeritem">
+                      <object class="wxChoice" name="preview_guide_choice_proj">
+                        <content>
+                          <item>None</item>
+                          <item>Rule of thirds</item>
+                          <item>Golden ratio</item>
+                          <item>Diagonal</item>
+                          <item>Diagonal method</item>
+                          <item>Golden triangle (down)</item>
+                          <item>Golden triangle (up)</item>
+                        </content>
+                        <selection>0</selection>
+                      </object>
+                      <flag>wxLEFT|wxRIGHT</flag>
+                      <border>5</border>
+                    </object>
+                    <orient>wxVERTICAL</orient>
+                  </object>
+                  <flag>wxALL|wxALIGN_CENTRE_VERTICAL</flag>
+                  <border>5</border>
+                </object>
+              </object>
+            </object>
+          </object>
+          <object class="notebookpage">
+            <object class="wxPanel" name="drag_mode_panel">
+              <object class="wxBoxSizer">
+                <orient>wxHORIZONTAL</orient>
+                <object class="sizeritem">
+                  <object class="wxButton" name="preview_center_tool">
+                    <label>Center</label>
+                    <bitmap>data/center_pano.png</bitmap>
+                    <bitmapposition>wxTOP</bitmapposition>
+                    <direction>wxTOP</direction>
+                    <style>wxBU_EXACTFIT</style>
+                    <tooltip>Center the preview horizontally</tooltip>
+                  </object>
+                  <flag>wxTOP|wxBOTTOM|wxLEFT|wxALIGN_CENTRE_VERTICAL</flag>
+                  <border>5</border>
+                </object>
+                <object class="sizeritem">
+                  <object class="wxButton" name="preview_fit_pano_tool">
+                    <label>Fit</label>
+                    <bitmap>data/fit_pano.png</bitmap>
+                    <bitmapposition>wxTOP</bitmapposition>
+                    <direction>wxTOP</direction>
+                    <style>wxBU_EXACTFIT</style>
+                    <tooltip>Estimate field of view</tooltip>
+                  </object>
+                  <flag>wxTOP|wxBOTTOM|wxALIGN_CENTRE_VERTICAL</flag>
+                  <border>5</border>
+                </object>
+                <object class="sizeritem">
+                  <object class="wxButton" name="preview_straighten_pano_tool">
+                    <label>Straighten</label>
+                    <bitmap>data/straighten_pano.png</bitmap>
+                    <bitmapposition>wxTOP</bitmapposition>
+                    <direction>wxTOP</direction>
+                    <style>wxBU_EXACTFIT</style>
+                    <tooltip>Automatically straighten a wavy horizon.</tooltip>
+                  </object>
+                  <flag>wxTOP|wxBOTTOM|wxRIGHT|wxALIGN_CENTRE_VERTICAL</flag>
+                  <border>5</border>
+                </object>
+                <object class="sizeritem">
+                  <object class="wxStaticLine">
+                    <size>2,-1</size>
+                  </object>
+                  <flag>wxEXPAND</flag>
+                </object>
+                <object class="sizeritem">
+                  <object class="wxFlexGridSizer">
+                    <object class="sizeritem">
+                      <object class="wxStaticText">
+                        <label>Drag mode:</label>
+                      </object>
+                      <flag>wxLEFT|wxBOTTOM|wxALIGN_RIGHT|wxALIGN_CENTRE_VERTICAL</flag>
+                      <border>5</border>
+                    </object>
+                    <object class="sizeritem">
+                      <object class="wxChoice" name="drag_mode_choice"/>
+                      <flag>wxLEFT|wxRIGHT|wxBOTTOM|wxEXPAND|wxALIGN_CENTRE_VERTICAL</flag>
+                      <border>5</border>
+                    </object>
+                    <object class="sizeritem">
+                      <object class="wxStaticText">
+                        <label>Guides:</label>
+                      </object>
+                      <flag>wxALIGN_RIGHT|wxALIGN_CENTRE_VERTICAL</flag>
+                    </object>
+                    <object class="sizeritem">
+                      <object class="wxChoice" name="preview_guide_choice_drag">
+                        <content>
+                          <item>None</item>
+                          <item>Rule of thirds</item>
+                          <item>Golden ratio</item>
+                          <item>Diagonal</item>
+                          <item>Diagonal method</item>
+                          <item>Golden triangle (down)</item>
+                          <item>Golden triangle (up)</item>
+                        </content>
+                        <selection>0</selection>
+                      </object>
+                      <flag>wxLEFT|wxRIGHT|wxEXPAND|wxALIGN_CENTRE_VERTICAL</flag>
+                      <border>5</border>
+                    </object>
+                    <cols>2</cols>
+                    <rows>2</rows>
+                    <growablecols>1</growablecols>
+                  </object>
+                  <flag>wxALIGN_CENTRE_VERTICAL|wxALL</flag>
+                  <border>5</border>
+                </object>
+                <object class="sizeritem">
+                  <object class="wxStaticLine">
+                    <size>2,-1</size>
+                  </object>
+                  <flag>wxEXPAND</flag>
+                </object>
+                <object class="sizeritem">
+                  <object class="wxBoxSizer">
+                    <orient>wxHORIZONTAL</orient>
+                    <object class="sizeritem">
+                      <object class="wxStaticText" name="label_yaw">
+                        <label>Yaw:</label>
+                      </object>
+                      <flag>wxLEFT|wxRIGHT|wxALIGN_CENTRE_VERTICAL</flag>
+                      <border>5</border>
+                    </object>
+                    <object class="sizeritem">
+                      <object class="wxTextCtrl" name="input_yaw">
+                        <style>wxTE_PROCESS_ENTER</style>
+                        <value>0</value>
+                        <size>50,-1</size>
+                      </object>
+                      <flag>wxALIGN_CENTRE_VERTICAL</flag>
+                    </object>
+                    <object class="sizeritem">
+                      <object class="wxStaticText" name="label_pitch">
+                        <label>Pitch:</label>
+                      </object>
+                      <flag>wxLEFT|wxRIGHT|wxALIGN_CENTRE_VERTICAL</flag>
+                      <border>5</border>
+                    </object>
+                    <object class="sizeritem">
+                      <object class="wxTextCtrl" name="input_pitch">
+                        <style>wxTE_PROCESS_ENTER</style>
+                        <value>0</value>
+                        <size>50,-1</size>
+                      </object>
+                      <flag>wxALIGN_CENTRE_VERTICAL</flag>
+                    </object>
+                    <object class="sizeritem">
+                      <object class="wxStaticText" name="label_roll">
+                        <label>Roll:</label>
+                      </object>
+                      <flag>wxLEFT|wxRIGHT|wxALIGN_CENTRE_VERTICAL</flag>
+                      <border>5</border>
+                    </object>
+                    <object class="sizeritem">
+                      <object class="wxTextCtrl" name="input_roll">
+                        <style>wxTE_PROCESS_ENTER</style>
+                        <value>0</value>
+                        <size>50,-1</size>
+                      </object>
+                      <flag>wxALIGN_CENTRE_VERTICAL</flag>
+                    </object>
+                    <object class="sizeritem">
+                      <object class="wxStaticText" name="label_x">
+                        <label>X:</label>
+                      </object>
+                      <flag>wxLEFT|wxRIGHT|wxALIGN_CENTRE_VERTICAL</flag>
+                      <border>5</border>
+                    </object>
+                    <object class="sizeritem">
+                      <object class="wxTextCtrl" name="input_x">
+                        <style>wxTE_PROCESS_ENTER</style>
+                        <value>0</value>
+                        <size>50,-1</size>
+                      </object>
+                      <flag>wxALIGN_CENTRE_VERTICAL</flag>
+                    </object>
+                    <object class="sizeritem">
+                      <object class="wxStaticText" name="label_y">
+                        <label>Y:</label>
+                      </object>
+                      <flag>wxLEFT|wxRIGHT|wxALIGN_CENTRE_VERTICAL</flag>
+                      <border>5</border>
+                    </object>
+                    <object class="sizeritem">
+                      <object class="wxTextCtrl" name="input_y">
+                        <style>wxTE_PROCESS_ENTER</style>
+                        <value>0</value>
+                        <size>50,-1</size>
+                      </object>
+                      <flag>wxALIGN_CENTRE_VERTICAL</flag>
+                    </object>
+                    <object class="sizeritem">
+                      <object class="wxStaticText" name="label_z">
+                        <label>Z:</label>
+                      </object>
+                      <flag>wxLEFT|wxRIGHT|wxALIGN_CENTRE_VERTICAL</flag>
+                      <border>5</border>
+                    </object>
+                    <object class="sizeritem">
+                      <object class="wxTextCtrl" name="input_z">
+                        <style>wxTE_PROCESS_ENTER</style>
+                        <value>0</value>
+                        <size>50,-1</size>
+                      </object>
+                      <flag>wxALIGN_CENTRE_VERTICAL</flag>
+                    </object>
+                    <object class="sizeritem">
+                      <object class="wxButton" name="apply_num_transform">
+                        <label>Apply</label>
+                      </object>
+                      <flag>wxLEFT|wxRIGHT|wxALIGN_CENTRE_VERTICAL</flag>
+                      <border>5</border>
+                    </object>
+                  </object>
+                  <flag>wxLEFT|wxRIGHT|wxALIGN_CENTRE_VERTICAL</flag>
+                  <border>5</border>
+                </object>
+              </object>
+              <tooltip>Move the panorama or drag images into position</tooltip>
+            </object>
+            <label>Move/Drag</label>
+            <bitmap>data/drag_tool_small.png</bitmap>
+          </object>
+          <object class="notebookpage">
+            <object class="wxPanel" name="crop_mode_panel">
+              <object class="wxBoxSizer">
+                <orient>wxHORIZONTAL</orient>
+                <object class="sizeritem">
+                  <object class="wxButton" name="preview_autocrop_tool">
+                    <label>Autocrop</label>
+                    <bitmap>data/autocrop_tool.png</bitmap>
+                    <bitmapposition>wxTOP</bitmapposition>
+                    <direction>wxTOP</direction>
+                    <style>wxBU_EXACTFIT</style>
+                    <tooltip>Set the crop region to the largest rectangle covered by images</tooltip>
+                  </object>
+                  <flag>wxALL|wxALIGN_CENTRE_VERTICAL</flag>
+                  <border>5</border>
+                </object>
+                <object class="sizeritem">
+                  <object class="wxButton" name="preview_stack_autocrop_tool">
+                    <label>HDR Autocrop</label>
+                    <bitmap>data/autocrop_tool.png</bitmap>
+                    <bitmapposition>wxTOP</bitmapposition>
+                    <direction>wxTOP</direction>
+                    <style>wxBU_EXACTFIT</style>
+                    <tooltip>Set the crop region to the largest rectangle covered by image stacks</tooltip>
+                  </object>
+                  <flag>wxALL|wxALIGN_CENTRE_VERTICAL</flag>
+                  <border>5</border>
+                </object>
+                <object class="sizeritem">
+                  <object class="wxStaticLine">
+                    <size>2,-1</size>
+                  </object>
+                  <flag>wxEXPAND</flag>
+                </object>
+                <object class="sizeritem">
+                  <object class="wxBoxSizer">
+                    <object class="sizeritem">
+                      <object class="wxStaticText">
+                        <label>Guides:</label>
+                      </object>
+                      <flag>wxALL</flag>
+                      <border>5</border>
+                    </object>
+                    <object class="sizeritem">
+                      <object class="wxChoice" name="preview_guide_choice_crop">
+                        <content>
+                          <item>None</item>
+                          <item>Rule of thirds</item>
+                          <item>Golden ratio</item>
+                          <item>Diagonal</item>
+                          <item>Diagonal method</item>
+                          <item>Golden triangle (down)</item>
+                          <item>Golden triangle (up)</item>
+                        </content>
+                        <selection>0</selection>
+                      </object>
+                      <flag>wxLEFT|wxBOTTOM|wxRIGHT</flag>
+                      <border>5</border>
+                    </object>
+                    <orient>wxVERTICAL</orient>
+                  </object>
+                  <flag>wxALL|wxALIGN_CENTRE_VERTICAL</flag>
+                  <border>5</border>
+                </object>
+                <object class="sizeritem">
+                  <object class="wxStaticLine">
+                    <size>2,-1</size>
+                  </object>
+                  <flag>wxEXPAND</flag>
+                </object>
+                <object class="sizeritem">
+                  <object class="wxBoxSizer">
+                    <object class="sizeritem">
+                      <object class="wxStaticText">
+                        <label>left:</label>
+                      </object>
+                      <flag>wxLEFT|wxRIGHT|wxALIGN_CENTRE_VERTICAL</flag>
+                      <border>5</border>
+                    </object>
+                    <object class="sizeritem">
+                      <object class="wxTextCtrl" name="pano_val_roi_left">
+                        <size>60,-1</size>
+                        <style>wxTE_PROCESS_ENTER</style>
+                      </object>
+                      <flag>wxALIGN_CENTRE_VERTICAL</flag>
+                    </object>
+                    <object class="sizeritem">
+                      <object class="wxStaticText">
+                        <label>top:</label>
+                      </object>
+                      <flag>wxLEFT|wxRIGHT|wxALIGN_CENTRE_VERTICAL</flag>
+                      <border>5</border>
+                    </object>
+                    <object class="sizeritem">
+                      <object class="wxTextCtrl" name="pano_val_roi_top">
+                        <size>60,-1</size>
+                        <style>wxTE_PROCESS_ENTER</style>
+                      </object>
+                      <flag>wxALIGN_CENTRE_VERTICAL</flag>
+                    </object>
+                    <object class="sizeritem">
+                      <object class="wxStaticText">
+                        <label>right:</label>
+                      </object>
+                      <flag>wxLEFT|wxRIGHT|wxALIGN_CENTRE_VERTICAL</flag>
+                      <border>5</border>
+                    </object>
+                    <object class="sizeritem">
+                      <object class="wxTextCtrl" name="pano_val_roi_right">
+                        <size>60,-1</size>
+                        <style>wxTE_PROCESS_ENTER</style>
+                      </object>
+                      <flag>wxALIGN_CENTRE_VERTICAL</flag>
+                    </object>
+                    <object class="sizeritem">
+                      <object class="wxStaticText">
+                        <label>bottom:</label>
+                      </object>
+                      <flag>wxLEFT|wxRIGHT|wxALIGN_CENTRE_VERTICAL</flag>
+                      <border>5</border>
+                    </object>
+                    <object class="sizeritem">
+                      <object class="wxTextCtrl" name="pano_val_roi_bottom">
+                        <size>60,-1</size>
+                        <style>wxTE_PROCESS_ENTER</style>
+                      </object>
+                      <flag>wxALIGN_CENTRE_VERTICAL</flag>
+                    </object>
+                    <orient>wxHORIZONTAL</orient>
+                    <object class="sizeritem">
+                      <object class="wxBitmapButton" name="reset_crop_button">
+                        <bitmap stock_id="wxART_REDO"/>
+                        <tooltip>Reset crop to maximal possible area</tooltip>
+                      </object>
+                      <flag>wxLEFT|wxRIGHT|wxALIGN_CENTRE_VERTICAL</flag>
+                      <border>5</border>
+                    </object>
+                  </object>
+                  <flag>wxLEFT|wxALIGN_CENTRE_VERTICAL</flag>
+                  <border>5</border>
+                </object>
+              </object>
+              <tooltip>Change the panorama's cropping region</tooltip>
+            </object>
+            <label>Crop</label>
+            <bitmap>data/crop_tool_small.png</bitmap>
+          </object>
+        </object>
+        <option>1</option>
+        <flag>wxEXPAND</flag>
+      </object>
+    </object>
+  </object>
+  <object class="wxMenuBar" name="preview_simple_menu">
+    <object class="wxMenu" name="edit_menu">
+      <object class="wxMenuItem" name="ID_EDITUNDO">
+        <label>&amp;Undo</label>
+        <accel>Ctrl-z</accel>
+        <help>Undo the last action</help>
+      </object>
+      <object class="wxMenuItem" name="ID_EDITREDO">
+        <label>&amp;Redo</label>
+        <accel>Ctrl-r</accel>
+        <help>Redo the last action</help>
+      </object>
+      <object class="separator"/>
+      <object class="wxMenuItem" name="action_optimize">
+        <label>&amp;Optimize</label>
+        <accel>Ctrl-t</accel>
+        <help>Re-run the optimizer with current settings</help>
+      </object>
+      <label>&amp;Edit</label>
+    </object>
+    <object class="wxMenu" name="preview_view_menu">
+      <object class="wxMenuItem" name="action_show_main_frame">
+        <label>Panorama &amp;editor</label>
+      </object>
+      <object class="wxMenuItem" name="ID_SHOW_FULL_SCREEN_PREVIEW">
+        <label>Full &amp;Screen</label>
+        <accel platform="win|unix">F11</accel>
+        <accel platform="mac">Ctrl-F</accel>
+        <help>Shows Hugin's main window on full-screen</help>
+      </object>
+      <object class="wxMenuItem" name="action_show_overview">
+        <label>&amp;Overview</label>
+        <help>Shows the overview of the panorama sphere.</help>
+        <checkable>1</checkable>
+      </object>
+      <object class="wxMenuItem" name="action_show_grid">
+        <label>&amp;Grid</label>
+        <help>Shows a grid.</help>
+        <checkable>1</checkable>
+      </object>
+      <label>&amp;View</label>
+    </object>
+    <object class="wxMenu" name="gui_level_menu">
+      <object class="wxMenuItem" name="action_gui_simple">
+        <label>&amp;Simple</label>
+        <radio>1</radio>
+        <checked>1</checked>
+      </object>
+      <object class="wxMenuItem" name="action_gui_advanced">
+        <label>&amp;Advanced</label>
+        <radio>1</radio>
+      </object>
+      <object class="wxMenuItem" name="action_gui_expert">
+        <label>&amp;Expert</label>
+        <radio>1</radio>
+      </object>
+      <label>&amp;Interface</label>
+    </object>
+    <object class="wxMenu" name="help_menu">
+      <object class="wxMenuItem" name="action_show_help">
+        <label>&amp;Help</label>
+        <accel>F1</accel>
+        <help>Some information on the different buttons and so on.</help>
+      </object>
+      <object class="wxMenuItem" name="action_show_tip">
+        <label>&amp;Tip of the day</label>
+        <help>Show one of the tips of the day.</help>
+      </object>
+      <object class="wxMenuItem" name="action_show_shortcuts">
+        <label>&amp;Keyboard Shortcuts</label>
+        <help>keyboard shortcuts</help>
+      </object>
+      <object class="wxMenuItem" name="action_show_faq">
+        <label>&amp;FAQ</label>
+        <help>Frequently Asked Questions</help>
+      </object>
+      <object class="separator"/>
+      <object class="wxMenuItem" name="action_show_about">
+        <label>&amp;About</label>
+        <help>About Hugin</help>
+      </object>
+      <object class="wxMenuItem" name="action_show_prefs" platform="mac">
+        <label>&amp;Preferences</label>
+        <accel>Ctrl-,</accel>
+      </object>
+      <label>&amp;Help</label>
+    </object>
+  </object>
+  <object class="wxMenu" name="preview_file_menu">
+    <object class="wxMenuItem" name="action_new_project">
+      <label>&amp;New</label>
+      <accel>Ctrl-n</accel>
+      <help>New project</help>
+    </object>
+    <object class="wxMenuItem" name="action_load_project">
+      <label>&amp;Open</label>
+      <accel>Ctrl-o</accel>
+      <help>Open project</help>
+    </object>
+    <object class="wxMenuItem" name="action_save_project">
+      <label>&amp;Save</label>
+      <accel>Ctrl-s</accel>
+      <help>Save current project file</help>
+    </object>
+    <object class="wxMenuItem" name="action_save_as_project">
+      <label>S&amp;ave as</label>
+      <help>Save current project to a new file</help>
+      <accel>Ctrl+shift+s</accel>
+    </object>
+    <object class="wxMenu" name="menu_mru_preview">
+      <label>Most recently &amp;used projects</label>
+      <help>List of most recently used project files</help>
+    </object>
+    <object class="separator"/>
+    <object class="wxMenuItem" name="action_open_batch_processor">
+      <label>&amp;Run Batch Processor</label>
+      <help>Opens PTBatcher, the batch processor for Hugin's project files</help>
+    </object>
+    <object class="separator" platform="win|unix"/>
+    <object class="wxMenuItem" name="action_show_prefs" platform="win|unix">
+      <label>&amp;Preferences</label>
+    </object>
+    <object class="separator"/>
+    <object class="wxMenuItem" name="action_exit_preview">
+      <label>&amp;Quit</label>
+      <accel>Ctrl-q</accel>
+      <help>Exit program</help>
+    </object>
+    <label>&amp;File</label>
+  </object>
+  <object class="wxMenu" name="preview_file_menu_advanced">
+    <object class="wxMenuItem" name="action_new_project">
+      <label>&amp;New</label>
+      <accel>Ctrl-n</accel>
+      <help>New project</help>
+    </object>
+    <object class="wxMenuItem" name="action_load_project">
+      <label>&amp;Open</label>
+      <accel>Ctrl-o</accel>
+      <help>Open project</help>
+    </object>
+    <object class="wxMenuItem" name="action_save_project">
+      <label>&amp;Save</label>
+      <accel>Ctrl-s</accel>
+      <help>Save current project file</help>
+    </object>
+    <object class="wxMenuItem" name="action_save_as_project">
+      <label>S&amp;ave as</label>
+      <help>Save current project to a new file</help>
+      <accel>Ctrl+shift+s</accel>
+    </object>
+    <object class="wxMenu" name="menu_mru_preview">
+      <label>Most recently &amp;used projects</label>
+      <help>List of most recently used project files</help>
+    </object>
+    <object class="separator" platform="win|unix"/>
+    <object class="wxMenuItem" name="action_show_prefs" platform="win|unix">
+      <label>&amp;Preferences</label>
+    </object>
+    <label>&amp;File</label>
+  </object>
+  <object class="wxMenu" name="preview_select_menu">
+    <object class="wxMenuItem" name="selectMenu_selectAll">
+      <label>&amp;All images</label>
+      <radio>1</radio>
+      <checked>1</checked>
+    </object>
+    <object class="wxMenuItem" name="selectMenu_selectMedian">
+      <label>Image with &amp;median exposure of each stack</label>
+      <radio>1</radio>
+    </object>
+    <object class="wxMenuItem" name="selectMenu_selectBrightest">
+      <label>&amp;Brightest image of each stack</label>
+      <radio>1</radio>
+    </object>
+    <object class="wxMenuItem" name="selectMenu_selectDarkest">
+      <label>&amp;Darkest image of each stack</label>
+      <radio>1</radio>
+    </object>
+    <object class="separator"/>
+    <object class="wxMenuItem" name="selectMenu_keepCurrentSelection">
+      <label>&amp;Keep currently selected images</label>
+      <radio>1</radio>
+      <checked>1</checked>
+    </object>
+    <object class="wxMenuItem" name="selectMenu_resetSelection">
+      <label>&amp;Reset selection</label>
+      <radio>1</radio>
+    </object>
+  </object>
+</resource>

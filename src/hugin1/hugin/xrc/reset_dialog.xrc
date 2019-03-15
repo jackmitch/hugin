@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<resource xmlns="http://www.wxwidgets.org/wxxrc" version="2.5.3.0">
+  <object class="wxDialog" name="reset_dialog">
+    <object class="wxBoxSizer">
+      <orient>wxVERTICAL</orient>
+      <object class="sizeritem">
+        <object class="wxStaticBoxSizer">
+          <label>Reset</label>
+          <orient>wxVERTICAL</orient>
+          <object class="sizeritem">
+            <object class="wxCheckBox" name="reset_pos">
+              <label>Image Orientation</label>
+              <checked>1</checked>
+            </object>
+            <flag>wxALL|wxEXPAND</flag>
+            <border>5</border>
+          </object>
+          <object class="sizeritem">
+            <object class="wxCheckBox" name="reset_translation">
+              <label>Translation parameters</label>
+              <checked>1</checked>
+            </object>
+            <flag>wxALL|wxEXPAND</flag>
+            <border>5</border>
+          </object>
+          <object class="sizeritem">
+            <object class="wxCheckBox" name="reset_fov">
+              <label>Field of View</label>
+              <checked>1</checked>
+            </object>
+            <flag>wxALL|wxEXPAND</flag>
+            <border>5</border>
+          </object>
+          <object class="sizeritem">
+            <object class="wxCheckBox" name="reset_lens">
+              <label>Lens parameters</label>
+              <checked>1</checked>
+            </object>
+            <flag>wxALL|wxEXPAND</flag>
+            <border>5</border>
+          </object>
+          <object class="sizeritem">
+            <object class="wxFlexGridSizer">
+              <object class="sizeritem">
+                <object class="wxCheckBox" name="reset_exposure">
+                  <label>Exposure</label>
+                  <checked>1</checked>
+                </object>
+                <flag>wxALL|wxEXPAND</flag>
+                <border>5</border>
+              </object>
+              <object class="sizeritem">
+                <object class="wxComboBox" name="combo_exposure">
+                  <content>
+                    <item>to EXIF values</item>
+                    <item>to zero (no exposure correction)</item>
+                  </content>
+                  <selection>0</selection>
+                  <style>wxCB_READONLY</style>
+                </object>
+                <option>1</option>
+                <flag>wxALL|wxEXPAND</flag>
+                <border>5</border>
+              </object>
+              <object class="sizeritem">
+                <object class="wxCheckBox" name="reset_color">
+                  <label>Color</label>
+                  <checked>1</checked>
+                </object>
+                <flag>wxALL|wxEXPAND</flag>
+                <border>5</border>
+              </object>
+              <object class="sizeritem">
+                <object class="wxComboBox" name="combo_color">
+                  <content>
+                    <item>to EXIF values</item>
+                    <item>to one (no color correction)</item>
+                  </content>
+                  <selection>0</selection>
+                  <style>wxCB_READONLY</style>
+                </object>
+                <option>1</option>
+                <flag>wxALL|wxEXPAND</flag>
+                <border>5</border>
+              </object>
+              <cols>2</cols>
+              <rows>2</rows>
+              <growablecols>1</growablecols>
+            </object>
+            <flag>wxEXPAND</flag>
+          </object>
+          <object class="sizeritem">
+            <object class="wxCheckBox" name="reset_vignetting">
+              <label>Vignetting</label>
+              <checked>1</checked>
+            </object>
+            <flag>wxALL|wxEXPAND</flag>
+            <border>5</border>
+          </object>
+          <object class="sizeritem">
+            <object class="wxCheckBox" name="reset_response">
+              <label>Camera Response</label>
+              <checked>1</checked>
+            </object>
+            <flag>wxALL|wxEXPAND</flag>
+            <border>5</border>
+          </object>
+        </object>
+        <flag>wxALL|wxEXPAND</flag>
+        <border>5</border>
+      </object>
+      <object class="sizeritem">
+        <object class="wxStdDialogButtonSizer">
+          <object class="button">
+            <object class="wxButton" name="wxID_OK">
+              <label>OK</label>
+              <default>1</default>
+            </object>
+          </object>
+          <object class="button">
+            <object class="wxButton" name="wxID_CANCEL">
+              <label>Cancel</label>
+            </object>
+          </object>
+        </object>
+        <flag>wxEXPAND|wxALL</flag>
+        <border>5</border>
+      </object>
+    </object>
+    <title>Reset values</title>
+    <style>wxDEFAULT_DIALOG_STYLE|wxCAPTION|wxTAB_TRAVERSAL</style>
+  </object>
+</resource>

@@ -1,0 +1,85 @@
+
+============================
+New CMake based build system
+============================
+
+
+Using the CMake build system under Unix
+=======================================
+
+briefly, do the following:
+
+$ cd hugin
+$ mkdir mybuild
+$ cd mybuild
+
+for a Debian package use
+$ cmake -DCMAKE_INSTALL_PREFIX=/usr/local -DCPACK_BINARY_DEB:BOOL=ON ../
+or for a rpm package
+$ cmake -DCMAKE_INSTALL_PREFIX=/usr/local -DCPACK_BINARY_RPM:BOOL=ON ../
+
+Build the package
+$ make package
+and install the package with your package manager
+
+If using Fedora's rpmbuild to build an rpm package, the recommended procedure 
+is similar to the above.
+$ cd hugin
+$ mkdir mybuild
+$ cd mybuild
+$ cmake ..
+$ make package_source
+copy, or move the selected source archive (.bz2 or .gz) from your mybuild dir to your rpmbuild
+SOURCE dir, generate or edit your .spec file, and build your package.
+
+Please report any problems to the hugin-ptx group at google:
+http://groups.google.com/group/hugin-ptx
+
+Missing dependencies
+=======================
+If cmake fails to pick up some dependencies, make sure you have
+the corresponding development packages installed (often named:
+libjpeg-dev and so on). If cmake still fails to find the libraries,
+for example if you have installed them into a non-standard directory,
+you can specify the path to libraries and include files using the
+ccmake program:
+$ cmake .
+[some failure]
+$ ccmake .
+
+If CMake fails to recognize the boost thread library, the boost library suffix
+might need to be given in the Boost_LIB_SUFFIX CMake variable. For example:
+$ cmake -DBoost_LIB_SUFFIX=gcc41-mt-1_34_1
+if the boost thread suffix is gcc41-mt-1_34_1
+
+Configuring the build
+=====================
+
+Upon cmake invocation, several variables can be set with the -D command line
+parameter. Important variables include:
+
+CMAKE_INSTALL_PREFIX  Destination directory of make install
+                      (default: /usr/local)
+CMAKE_BUILD_TYPE      Specify the build type (Release (Default) or Debug)
+LIB_SUFFIX            Specifies suffix used for library paths. For AMD64,
+                      usually 64 is used as prefix. Default: empty.
+                      Setting to 64 results in: $CMAKE_INSTALL_PREFIX/lib64
+HUGIN_SHARED          set to 0 to disable build shared libraries for internal
+                      functions. (Unix and OSX, Windows is always statically linked)
+BUILD_HSI             Set to on to build with Python scripting support         
+
+MAC_SELF_CONTAINED_BUNDLE=1 Configures hugin for a fully bundled version, where
+                      all required programs (nona, enblend, HuginStitchProject,
+                      etc.) are embedded in the bundle.
+                      Without this switch, hugin will behave just like on
+                      any other unix platform and depend on resources
+                      outside the bundle (translations, data files etc.).
+
+For distributors:
+=================
+CMake supports the DESTDIR variable during make install, this
+might be helpful to install into a temporary directory during
+package creation
+
+$ make install DESTDIR=mytmp_package_dir
+

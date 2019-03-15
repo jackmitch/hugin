@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="client-nojs">
+<head>
+<meta charset="UTF-8"/>
+<title>Hugin Exposure tab - PanoTools.org Wiki</title>
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE"/>
+<meta name="generator" content="MediaWiki 1.23.15"/>
+
+
+
+
+
+
+<style media="screen" type="text/css" title="Screen style sheet"> @import url(manual.css); </style>
+
+<style>a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: panotools_wiki:resourceloader:filter:minify-css:7:90730a7865ba4b50e0b837e1821ff0a3 */</style>
+
+
+
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/skins/vector/csshover.min.htc")}</style><![endif]--></head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-Hugin_Exposure_tab skin-vector action-view vector-animateLayout">
+		
+		
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+			
+						<h1 id="firstHeading" class="firstHeading" lang="en"><span dir="auto">Hugin Exposure tab</span></h1>
+						<div id="bodyContent">
+								<div id="siteSub">From PanoTools.org Wiki</div>
+								
+												
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><p>As explained on the <a href="Hugin_Photos_tab.html#Photometric_.28Simple_User_interface.29" title="Hugin Photos tab">Hugin Photos tab</a>, hugin has a brightness and colour correction system using the default nona stitching tool.
+</p><p>Hugin comes with an extended set of predefined settings for photometric optimisation. If these predefined options do not give the desired results you can define your custom parameters in this <b>Hugin Exposure tab</b>.
+</p><p>The images list behaves very similar like the image list on the <a href="Hugin_Photos_tab.html" title="Hugin Photos tab">Photos tab</a>. So can also in this tab add/remove images, change the lens or stack assignments, link or unlink image variables,... Beside the features of the list on the <a href="Hugin_Photos_tab.html" title="Hugin Photos tab">Photos tab</a> it provides also in-place editing of single image variables. (<b>Note:</b> If you want to modify a value for a lens, you need to single-click the value, not double-click it.) If you want to change image variables from several images at once, select all affected images and choice <b>Edit image variables...</b> from the context menu.
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Hugin_Exposure_tab.html#Photometric_Optimisation"><span class="tocnumber">1</span> <span class="toctext">Photometric Optimisation</span></a>
+<ul>
+<li class="toclevel-2 tocsection-2"><a href="Hugin_Exposure_tab.html#Image_variables"><span class="tocnumber">1.1</span> <span class="toctext">Image variables</span></a></li>
+<li class="toclevel-2 tocsection-3"><a href="Hugin_Exposure_tab.html#Camera_and_Lens_variables"><span class="tocnumber">1.2</span> <span class="toctext">Camera and Lens variables</span></a>
+<ul>
+<li class="toclevel-3 tocsection-4"><a href="Hugin_Exposure_tab.html#Vignetting"><span class="tocnumber">1.2.1</span> <span class="toctext">Vignetting</span></a></li>
+<li class="toclevel-3 tocsection-5"><a href="Hugin_Exposure_tab.html#Vignetting_Center_Shift"><span class="tocnumber">1.2.2</span> <span class="toctext">Vignetting Center Shift</span></a></li>
+<li class="toclevel-3 tocsection-6"><a href="Hugin_Exposure_tab.html#Camera_Response"><span class="tocnumber">1.2.3</span> <span class="toctext">Camera Response</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h1><a name="Photometric_Optimisation"><span class="mw-headline">Photometric Optimisation</span></a></h1>
+<p>With Ctrl+Left click you define which parameters will be optimised. The context menu provides short cuts to select the parameters of all images, of all images of a selected lens or of all image of a single stack.
+</p>
+<h2><a name="Image_variables"><span class="mw-headline">Image variables</span></a></h2>
+<p>In the <b>Image variables</b> part of the screen you can modify the exposure EV, the <i>red multiplier</i> <b>Er</b> and the <i>blue multiplier</i> <b>Eb</b>.
+</p><p>The <b>Red multiplier</b> and <b>Blue multiplier</b> settings are used to account for changes
+in <b>white balance</b> (also known as <i>colour balance</i> or <i>colour temperature</i>) between
+photos.  Setting them both to <i>1</i> will result in no <i>white balance</i> change (the numbers
+are relative to the green channel which stays unaltered).
+</p><p>As with exposure, different photos in the same project are quite likely to require different
+<i>white balance</i>.  Typically this will be caused by variations in lighting conditions between
+shots - For example a cloudy scene will contain considerably less <i>red</i> light than the same scene
+under direct sunlight.
+</p>
+<h2><a name="Camera_and_Lens_variables"><span class="mw-headline">Camera and Lens variables</span></a></h2>
+<p>The values that you can change in the <b>Camera and Lens variables</b> table is again dependent on the <b>Simple</b>, <b>Advanced</b> or <b>Expert</b> User interface.
+</p>
+<h3><a name="Vignetting"><span class="mw-headline">Vignetting</span></a></h3>
+<p><a href="Vignetting.html" title="Vignetting">Vignetting</a> is dependent mainly on your lens and the <i>aperture</i>. Usually the
+centre of the image is brighter with a falloff towards the edges.  The three
+numbers here represent a polynomial curve used by <a href="Hugin.html" title="Hugin">hugin</a> to correct vignetting.
+</p><p>You are not expected to guess these values, they are generally loaded with a lens
+profile or calculated from two or more overlapping photos.
+</p><p>Set the values to <i>0,0,0</i> for no vignetting correction.
+</p><p>Usually all photos taken with the same <i>lens</i> will have the same vignetting, keep
+<b>Link</b> checked to ensure <b>hugin</b> applies the same vignetting correction to all
+photos with the selected lens number.
+</p>
+<h3><a name="Vignetting_Center_Shift"><span class="mw-headline">Vignetting Center Shift</span></a></h3>
+<p>The centre of <a href="Vignetting.html" title="Vignetting">vignetting</a> is rarely the exact centre of the photo. The two numbers
+here indicate the position of the vignetting centre. The scale is in pixels, with
+<i>0,0</i> indicating the centre of the photo. The values are independent of the <b>d</b>
+&amp; <b>e</b> parameters which specify the origin for projection and geometric distortion.
+</p><p><br />
+</p>
+<h3><a name="Camera_Response"><span class="mw-headline">Camera Response</span></a></h3>
+<p>The <a href="Camera_response_curve.html" title="Camera response curve">camera response curve</a> is used both for mapping the images to a linear
+colourspace when creating <a href="HDR.html" title="HDR">HDR</a> output, and for normalising the colourspace
+for internal vignetting, brightness and colour corrections when creating
+'normal' <b>LDR</b> output.
+</p><p><a href="Hugin.html" title="Hugin">hugin</a> uses the <a rel="nofollow" class="external text" href="http://www1.cs.columbia.edu/CAVE/projects/rad_cal/rad_cal.php">EMoR response model</a>
+from the Computer Vision Lab at Columbia University which simplifies the full
+response curve to these five empirical coefficient numbers.  You are
+not expected to guess these values, they are generally loaded with a lens
+profile or calculated from two or more overlapping photos.
+</p><p>Set the five numbers to <i>0,0,0,0,0</i> to use a generic response curve or change the <b>Type</b>
+to <b>Linear</b> to indicate that your input photos have a <i>scene-referred</i> or <a href="HDR.html" title="HDR">HDR</a>
+response.
+</p><p>Keep <b>Link</b> checked to ensure <b>hugin</b> applies the same
+response curve to all photos with the selected lens number.
+</p>
+
+
+
+</div>								<div class="printfooter">
+				Retrieved from "http://wiki.panotools.org/index.php?title=Hugin_Exposure_tab&amp;oldid=14984<a class="external" href="http://wiki.panotools.org/index.php?title=Hugin_Exposure_tab&amp;oldid=14984">[*]</a>"				</div>
+												</div></div></body></html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="client-nojs">
+<head>
+<meta charset="UTF-8"/>
+<title>Cpclean - PanoTools.org Wiki</title>
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE"/>
+<meta name="generator" content="MediaWiki 1.23.15"/>
+
+
+
+
+
+
+<style media="screen" type="text/css" title="Screen style sheet"> @import url(manual.css); </style>
+
+<style>a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: panotools_wiki:resourceloader:filter:minify-css:7:90730a7865ba4b50e0b837e1821ff0a3 */</style>
+
+
+
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/skins/vector/csshover.min.htc")}</style><![endif]--></head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-Cpclean skin-vector action-view vector-animateLayout">
+		
+		
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+			
+						<h1 id="firstHeading" class="firstHeading" lang="en"><span dir="auto">Cpclean</span></h1>
+						<div id="bodyContent">
+								<div id="siteSub">From PanoTools.org Wiki</div>
+								
+												
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><p><b>cpclean</b> is a command-line tool that implements the 'bad' <a href="Control_points.html" title="Control points">control points</a> pruning available within the <a href="Hugin.html" title="Hugin">Hugin</a> GUI. It is similar conceptually to apclean<a class="external" href="http://wiki.panotools.org/index.php?title=Apclean&amp;action=edit&amp;redlink=1">[*]</a>, but with some extra functionality. Both tools use a statistical filter to remove points with an error above a statistical threshold.
+</p><p>The idea is to remove all non-credible control points.  To do this it uses a two step process to remove bad control points. 
+</p>
+<div id="toc" class="toc"><div id="toctitle"><h2>Contents</h2></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="Cpclean.html#Step_1"><span class="tocnumber">1</span> <span class="toctext">Step 1</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="Cpclean.html#Step_2"><span class="tocnumber">2</span> <span class="toctext">Step 2</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="Cpclean.html#result"><span class="tocnumber">3</span> <span class="toctext">result</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="Cpclean.html#usage"><span class="tocnumber">4</span> <span class="toctext">usage</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="Cpclean.html#Options"><span class="tocnumber">5</span> <span class="toctext">Options</span></a></li>
+</ul>
+</div>
+
+<h3><a name="Step_1"><span class="mw-headline">Step 1</span></a></h3>
+<p>optimises each pair of photos one at a time and deletes all points that can't be made to fit.
+</p>
+<h3><a name="Step_2"><span class="mw-headline">Step 2</span></a></h3>
+<p>optimises the whole project together using more conservative assumptions and deletes another round of points. If there is more than one image chain present this step is not done.
+</p>
+<h3><a name="result"><span class="mw-headline">result</span></a></h3>
+<p>The .pto project file is returned unoptimised, the only change is that there are less control points, this means the project doesn't have to be optimised before you start.
+</p><p>By using this optimisation step <b>cpclean</b> is able to look not just at the current project settings and find 'bad' points, but is able to find points that are 'bad' under a range of circumstances.
+</p>
+<h3><a name="usage"><span class="mw-headline">usage</span></a></h3>
+<p>A typical usage would be:
+</p>
+<pre> cpclean --output=output.pto project.pto
+</pre>
+<h3><a name="Options"><span class="mw-headline">Options</span></a></h3>
+<p>Vary the threshold with the <tt>--max-distance</tt> parameter (defaults to 2, i.e. points with a distance error greater than twice the standard deviation are deleted):
+</p>
+<pre> cpclean --max-distance=1 --output=output.pto project.pto
+</pre>
+<p>Do only pairwise optimisation (skip step 2):
+</p>
+<pre> cpclean --pairwise-checking --output=output.pto project.pto
+</pre>
+<p>Do only whole panorama optimisation (skip step 1):
+</p>
+<pre> cpclean --whole-pano-checking --output=output.pto project.pto
+</pre>
+<p>Use current image positions for calculation of distance errors (skip optimisation of whole panorama):
+</p>
+<pre> cpclean --whole-pano-checking --dont-optimize --output=output.pto project.pto
+</pre>
+<p>By default line control point are ignored by the calculations for step 2. With <tt>--check-line-cp</tt> you can also include these control points into calculation
+</p>
+<pre> cpclean --whole-pano-checking --check-line-cp --output=output.pto project.pto
+</pre>
+<p><b>cpclean</b> is based on ptoclean<a class="external" href="http://wiki.panotools.org/index.php?title=Ptoclean&amp;action=edit&amp;redlink=1">[*]</a>.
+</p>
+
+
+
+</div>								<div class="printfooter">
+				Retrieved from "http://wiki.panotools.org/index.php?title=Cpclean&amp;oldid=15800<a class="external" href="http://wiki.panotools.org/index.php?title=Cpclean&amp;oldid=15800">[*]</a>"				</div>
+												</div></div></body></html>

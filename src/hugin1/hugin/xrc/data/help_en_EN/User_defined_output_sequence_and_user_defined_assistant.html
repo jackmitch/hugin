@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="client-nojs">
+<head>
+<meta charset="UTF-8"/>
+<title>User defined output sequence and user defined assistant - PanoTools.org Wiki</title>
+
+
+
+<!--[if IE 6]><![endif]--><!--[if IE 7]><![endif]-->
+<style media="screen" type="text/css" title="Screen style sheet"> @import url(manual.css); </style>
+
+
+<meta name="generator" content="MediaWiki 1.27.4"/>
+
+
+
+
+
+</head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-User_defined_output_sequence_and_user_defined_assistant rootpage-User_defined_output_sequence_and_user_defined_assistant skin-monobook action-view">
+<div id="globalWrapper">
+		<div id="column-content">
+			<div id="content" class="mw-body" role="main">
+				<a id="top"></a>
+				
+				
+				<h1 id="firstHeading" class="firstHeading" lang="en">User defined output sequence and user defined assistant</h1>
+				
+				<div id="bodyContent" class="mw-body-content">
+					<div id="siteSub">From PanoTools.org Wiki</div>
+					
+										
+
+					<!-- start content -->
+					<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><p>Normally the stitching of <b>Hugin</b> is controlled by the settings on the <a href="Hugin_Stitcher_tab.html" title="Hugin Stitcher tab">stitcher tab</a> and by the settings in the <a href="Hugin_Preferences.html" title="Hugin Preferences">preferences dialog</a>. In this case you can tweak a lot of options at both places, but you can't add additional steps to the processing queue. Also the assistant has a fixed algorithm suitable for normal panorama. But for same use case (e.g. stitching scanned images or multi-row panorama with orphaned images) this algorithm is not so good suited. For adjusting the work flow the concept of user defined output sequences and user defined assistant was introduced.
+</p><p>In an user defined output sequence / assistant you can define which programs should be executed. So you can add additional process step or add parameters which are not exposed in the normal processing. In case of user defined output sequence the settings on the stitcher tab and in the preferences are ignored. An exception are the projection, field of view and canvas size on the stitcher tab - these are used.
+</p><p>The user defined output sequences are defined in .executor files, the user defined assistant in .assistant files respectively. The format of these files is described in the files <tt>doc/executor_file_format.txt</tt> and <tt>doc/assistant_file_format.txt</tt>. <a href="Hugin_executor.html" title="Hugin executor">Hugin_executor</a> and <a href="Hugin.html" title="Hugin">Hugin</a> can use these files for stitching. Also <a href="Hugin_stitch_project.html" title="Hugin stitch project">hugin_stitch_project</a> can handle user defined output sequences. (PTBatcherGUI<a class="external" href="https://wiki.panotools.org/PTBatcherGUI">[*]</a> can't handle the user defined output sequences and the user defined assistant.)
+</p><p>In Hugin you can open an executor file from any directory and stitch with the settings from this file your project. 
+Hugin 2017.1 and later lists the executor and assistant files from 2 directories in the menu bar for easier access: from a systemwide data directory and from an user data directory. On Windows the paths are <tt>install directory\share\hugin\data</tt> and <tt>c:\users\USERNAME\AppName\Roaming\hugin</tt>, on Linux the paths are <tt>/usr/share/hugin/data</tt> and <tt>~/.hugindata</tt>.
+</p>
+
+
+<!-- 
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 - -total
+-->
+
+
+</div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="https://wiki.panotools.org/index.php?title=User_defined_output_sequence_and_user_defined_assistant&amp;oldid=16003">https://wiki.panotools.org/index.php?title=User_defined_output_sequence_and_user_defined_assistant&amp;oldid=16003</a>"</div>
+					</div></div></body></html>

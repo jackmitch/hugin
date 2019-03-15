@@ -1,0 +1,31 @@
+[General]
+Description=Align image stack assistant
+Help=Assistant for alignment of a single stack
+StepCount=5
+
+[Step0]
+Description=Searching control points
+Condition=not connected
+Program=cpfind
+Arguments=--linearmatch -v --output=%project% %project%
+
+[Step1]
+Description=Check result
+Condition=not connected
+Program=checkpto
+Arguments=%project%
+
+[Step2]
+Description=Set optimizer variables
+Program=pto_var
+Arguments=--opt=y,p,r --output=%project% %project%
+
+[Step3]
+Description=Optimizing
+Program=autooptimiser
+Arguments=-n --output=%project% %project%
+
+[Step4]
+Description=Searching for best crop...
+Program=pano_modify
+Arguments=--projection=0 --fov=AUTO --canvas=100% --crop=AUTOHDR --output-type=REMAPORIG --output=%project% %project%

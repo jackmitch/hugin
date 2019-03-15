@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="client-nojs">
+<head>
+<meta charset="UTF-8"/>
+<title>Verdandi - PanoTools.org Wiki</title>
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE"/>
+<meta name="generator" content="MediaWiki 1.23.15"/>
+
+
+
+
+
+
+<style media="screen" type="text/css" title="Screen style sheet"> @import url(manual.css); </style>
+
+<style>a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: panotools_wiki:resourceloader:filter:minify-css:7:90730a7865ba4b50e0b837e1821ff0a3 */</style>
+
+
+
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/skins/vector/csshover.min.htc")}</style><![endif]--></head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-Verdandi skin-vector action-view vector-animateLayout">
+		
+		
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+			
+						<h1 id="firstHeading" class="firstHeading" lang="en"><span dir="auto">Verdandi</span></h1>
+						<div id="bodyContent">
+								<div id="siteSub">From PanoTools.org Wiki</div>
+								
+												
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><p><b>verdandi</b> is a tool to merge several images into a single image without a seam. It is similar to <a href="Enblend.html" title="Enblend">enblend</a> and using similar command line switches. It tries to find the best seam, which is the least visible. <b>Verdandi</b> supports two different blend modes:
+</p>
+<ul>
+<li> <tt>--seam=hard</tt>: The blend mode is using a hard blend: each pixel is taken from exact one image. This behaviour (Seam Carving) is similar to the blending function used in Adobes Photomerge.
+</li>
+<li> <tt>--seam=blend</tt>: Blend the images in the gradient domain. The second image is here matched to the first image. This should reduce the differences between the images. But it is slower than the hard seam variant.
+</li>
+</ul>
+<p><br />
+</p>
+<h2><a name="Usage"><span class="mw-headline">Usage</span></a></h2>
+<pre>   verdandi --output=output.tif input1.tif input2.tif input3.tif
+</pre>
+<p>will merge the images <tt>input1.tif</tt>, <tt>input2.tif</tt> and <tt>input3.tif</tt> to <tt>output.tif</tt>.
+</p>
+<ul>
+<li> <tt>--output=OUTPUT_FILENAME</tt>: The output filename. It has to include the extension to deduce the format of the output file.
+</li>
+<li> <tt>--compression=COMPRESSION</tt>: Sets the compression for the output
+<ul>
+<li> For jpeg files use <tt>0-100</tt>: This will set the quality of the jpeg file. Bigger number means better image quality.
+</li>
+<li> For tiff files the following compressions are supported: <tt>PACKBITS</tt>, <tt>DEFLATE</tt> and <tt>LZW</tt>.
+</li>
+</ul>
+</li>
+<li> <tt>--seam=hard|blend</tt>: Sets the blend mode (see above)
+</li>
+<li> <tt>--warp</tt>: Wraparound the 360 deg border. Otherwise the left and right borders are treated independent of each other.
+</li>
+</ul>
+
+
+
+
+</div>								<div class="printfooter">
+				Retrieved from "http://wiki.panotools.org/index.php?title=Verdandi&amp;oldid=15810<a class="external" href="http://wiki.panotools.org/index.php?title=Verdandi&amp;oldid=15810">[*]</a>"				</div>
+												</div></div></body></html>

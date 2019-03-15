@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<resource xmlns="http://www.wxwidgets.org/wxxrc" version="2.5.3.0">
+  <object class="wxDialog" name="about_dlg">
+    <title>About Hugin</title>
+    <centered>1</centered>
+    <size>535,535</size>
+    <style>wxDEFAULT_DIALOG_STYLE|wxRESIZE_BORDER</style>
+    <object class="wxBoxSizer">
+      <orient>wxVERTICAL</orient>
+      <object class="sizeritem">
+        <object class="wxPanel">
+          <bg>#FFFFFF</bg>
+          <object class="wxBoxSizer">
+            <orient>wxVERTICAL</orient>
+            <object class="sizeritem">
+              <object class="wxStaticBitmap" name="about_logo">
+                <bitmap>data/splash.png</bitmap>
+              </object>
+              <flag>wxALL|wxALIGN_CENTER_HORIZONTAL</flag>
+            </object>
+            <object class="sizeritem">
+              <object class="wxTextCtrl" name="about_version">
+                <value>version</value>
+                <bg>#FFFFFF</bg>
+                <style>wxNO_BORDER|wxTE_READONLY|wxTE_RIGHT</style>
+              </object>
+              <flag>wxLEFT|wxRIGHT|wxEXPAND</flag>
+              <border>3</border>
+            </object>
+          </object>
+        </object>
+        <flag>wxALL|wxEXPAND</flag>
+      </object>
+      <object class="sizeritem">
+        <object class="wxStaticLine"/>
+        <flag>wxLEFT|wxRIGHT|wxEXPAND</flag>
+        <border>3</border>
+      </object>
+      <object class="sizeritem">
+        <object class="wxNotebook" name="about_notebook">
+          <object class="notebookpage">
+            <object class="wxPanel" name="about_tab">
+              <object class="wxBoxSizer">
+                <orient>wxVERTICAL</orient>
+                <object class="sizeritem">
+                  <object class="HtmlWindow" name="intro_html">
+                    <borders>0</borders>
+                    <style platform="win">wxSUNKEN_BORDER</style>
+                    <url>data/intro.htm</url>
+                    <bg>#FFFFFF</bg>
+                  </object>
+                  <flag>wxALL|wxEXPAND</flag>
+                  <option>1</option>
+                  <border platform="unix|mac">0</border>
+                </object>
+              </object>
+            </object>
+            <label>About</label>
+          </object>
+          <object class="notebookpage">
+            <object class="wxPanel" name="authors_tab">
+              <object class="wxBoxSizer">
+                <orient>wxVERTICAL</orient>
+                <object class="sizeritem">
+                  <object class="wxHtmlWindow" name="about_html">
+                    <borders>0</borders>
+                    <style platform="win">wxSUNKEN_BORDER</style>
+                    <url>data/about.htm</url>
+                    <bg>#FFFFFF</bg>
+                  </object>
+                  <option>1</option>
+                  <flag>wxALL|wxEXPAND</flag>
+                  <border platform="unix|mac">0</border>
+                </object>
+                <flag>wxEXPAND</flag>
+                <option>1</option>
+              </object>
+            </object>
+            <label>Authors</label>
+          </object>
+          <object class="notebookpage">
+            <object class="wxPanel" name="sponsors_tab">
+              <object class="wxBoxSizer">
+                <orient>wxVERTICAL</orient>
+                <object class="sizeritem">
+                  <object class="wxHtmlWindow" name="sponsors_html">
+                    <borders>0</borders>
+                    <style platform="win">wxSUNKEN_BORDER</style>
+                    <url>data/sponsors.htm</url>
+                    <bg>#FFFFFF</bg>
+                  </object>
+                  <option>1</option>
+                  <flag>wxALL|wxEXPAND</flag>
+                  <border platform="unix|mac">0</border>
+                </object>
+                <flag>wxEXPAND</flag>
+                <option>1</option>
+              </object>
+            </object>
+            <label>Sponsors</label>
+          </object>
+          <object class="notebookpage">
+            <object class="wxPanel" name="upstream_tab">
+              <object class="wxBoxSizer">
+                <orient>wxVERTICAL</orient>
+                <object class="sizeritem">
+                  <object class="wxTextCtrl" name="upstream_txt">
+                    <font>
+                      <size>8</size>
+                      <size platform="mac">10</size>
+                      <family>modern</family>
+                    </font>
+                    <style platform="win">wxTE_MULTILINE|wxTE_READONLY</style>
+                    <style platform="unix|mac">wxTE_MULTILINE|wxTE_READONLY|wxNO_BORDER</style>
+                  </object>
+                  <flag>wxALL|wxEXPAND</flag>
+                  <option>1</option>
+                  <border platform="unix|mac">0</border>
+                </object>
+              </object>
+            </object>
+            <label>Upstream</label>
+          </object>
+          <object class="notebookpage">
+            <object class="wxPanel" name="license_tab">
+              <object class="wxBoxSizer">
+                <orient>wxVERTICAL</orient>
+                <object class="sizeritem">
+                  <object class="wxTextCtrl" name="license_txt">
+                    <font>
+                      <size>8</size>
+                      <size platform="mac">10</size>
+                      <family>modern</family>
+                    </font>
+                    <style platform="win">wxTE_MULTILINE|wxTE_READONLY</style>
+                    <style platform="unix|mac">wxTE_MULTILINE|wxTE_READONLY|wxNO_BORDER</style>
+                  </object>
+                  <flag>wxALL|wxEXPAND</flag>
+                  <option>1</option>
+                  <border platform="unix|mac">0</border>
+                </object>
+              </object>
+            </object>
+            <label>License</label>
+          </object>
+          <object class="notebookpage">
+            <label>System</label>
+            <object class="wxPanel" name="system_tab">
+              <object class="wxBoxSizer">
+                <orient>wxVERTICAL</orient>
+                <object class="sizeritem">
+                  <object class="wxTextCtrl" name="system_txt">
+                    <font>
+                      <size>8</size>
+                      <size platform="mac">10</size>
+                      <family>modern</family>
+                    </font>
+                    <style platform="win">wxTE_MULTILINE|wxTE_READONLY</style>
+                    <style platform="unix|mac">wxTE_MULTILINE|wxTE_READONLY|wxNO_BORDER</style>
+                  </object>
+                  <flag>wxALL|wxEXPAND</flag>
+                  <option>1</option>
+                  <border platform="unix|mac">0</border>
+                </object>
+              </object>
+            </object>
+          </object>
+<!-- dedication tab no longer in use
+          <object class="notebookpage">
+            <object class="wxPanel" name="dedication_tab">
+              <object class="wxBoxSizer">
+                <orient>wxVERTICAL</orient>
+                <object class="sizeritem">
+                  <object class="HtmlWindow" name="dedication_html">
+                    <borders>0</borders>
+                    <style platform="win">wxSUNKEN_BORDER</style>
+                    <url>data/dedication.htm</url>
+                    <bg>#FFFFFF</bg>
+                  </object>
+                  <option>1</option>
+                  <flag>wxALL|wxEXPAND</flag>
+                  <border platform="unix|mac">0</border>
+                </object>
+                <flag>wxEXPAND</flag>
+                <option>1</option>
+              </object>
+            </object>
+            <label>Dedication</label>
+          </object>
+-->
+        </object>
+        <flag>wxALL|wxEXPAND</flag>
+        <border>8</border>
+        <option>1</option>
+      </object>
+      <object class="sizeritem">
+        <object class="wxButton" name="wxID_OK">
+          <label>OK</label>
+          <default>1</default>
+        </object>
+        <flag>wxALL|wxALIGN_RIGHT</flag>
+        <border>12</border>
+      </object>
+    </object>
+  </object>
+</resource>

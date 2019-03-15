@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="client-nojs">
+<head>
+<meta charset="UTF-8"/>
+<title>Hugin executor - PanoTools.org Wiki</title>
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE"/>
+<meta name="generator" content="MediaWiki 1.23.16"/>
+
+
+
+
+
+
+<style media="screen" type="text/css" title="Screen style sheet"> @import url(manual.css); </style>
+
+<style>a:lang(ar),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}
+/* cache key: panotools_wiki:resourceloader:filter:minify-css:7:90730a7865ba4b50e0b837e1821ff0a3 */</style>
+
+
+
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/skins/vector/csshover.min.htc")}</style><![endif]--></head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-Hugin_executor skin-vector action-view vector-animateLayout">
+		
+		
+		<div id="content" class="mw-body" role="main">
+			<a id="top"></a>
+			
+						<h1 id="firstHeading" class="firstHeading" lang="en"><span dir="auto">Hugin executor</span></h1>
+						<div id="bodyContent">
+								<div id="siteSub">From PanoTools.org Wiki</div>
+								
+												
+				<div id="mw-content-text" lang="en" dir="ltr" class="mw-content-ltr"><p><b>hugin_executor</b> is a tool for command line stitching or for running the assistant from the command line. It generates a set of commands and subsequently runs the commands.
+</p><p>It is available in Hugin 2015.0 and later. (Hugin versions up to 2014.0 use pto2mk<a class="external" href="http://wiki.panotools.org/Pto2mk">[*]</a> for command line stitching.)
+</p>
+<h2><a name="Command_line_stitching"><span class="mw-headline">Command line stitching</span></a></h2>
+<p>To stitch a project file from the command line use
+</p>
+<pre>   hugin_executor --stitching --prefix=prefix project.pto
+</pre>
+<p>It will use the settings in the project file and also in <a href="Hugin_Preferences.html" title="Hugin Preferences">Hugins preferences dialog</a> (e.g. exiftool settings). This is the same as using "Stitch!" from the <a href="Hugin_Stitcher_tab.html" title="Hugin Stitcher tab">stitcher tab</a>.
+</p><p>When no prefix is specified it will use the output prefix found in Hugin's preferences dialog. The default value for the output prefix is the filename (inclusive path) of the project file.
+</p><p>When adding the switch <tt>--user-defined-output=executor_file</tt> the default stitching is disabled and the steps defined in the executor_file are used instead (see <a href="User_defined_output_sequence.html" title="User defined output sequence">user defined output sequence</a> for more details).
+</p>
+<h2><a name="Command_line_assistant"><span class="mw-headline">Command line assistant</span></a></h2>
+<p>The assistant can run on the command line with
+</p>
+<pre>   hugin_executor --assistant project.pto
+</pre>
+<p>This will run different other command line tools (like <a href="Cpfind.html" title="Cpfind">cpfind</a>, <a href="Linefind.html" title="Linefind">linefind</a>, <a href="Autooptimiser.html" title="Autooptimiser">autooptimiser</a>) on the project and determine so the settings needed for the following stitching step. It expects a pto file with information about the images, the lenses and the stacks in this project. This pto file can e.g. be created with <a href="Pto_gen.html" title="Pto gen">pto_gen</a>.
+</p><p>The project file will be overwritten with the extended project file (e. g. with control point and optimized).
+</p><p>The settings of the assistant can be changed in <a href="Hugin_Preferences.html" title="Hugin Preferences">Hugins preferences dialog</a>.
+</p>
+<h2><a name="Advanced_options"><span class="mw-headline">Advanced options</span></a></h2>
+<ul>
+<li> <tt>--threads=NUM</tt>: Many of the individual tools are using as much threads as possible, e.g. on a 4 core processor it will use 4 threads. This behavior can be changed by setting the environment variable <tt>OMP_NUM_THREADS</tt> or set the switch <tt>--threads</tt> to reduce the CPU load. By default, all available threads will be used.
+</li>
+<li> <tt>--dry-run</tt>: By default <b>hugin_executor</b> executes all commands in sequence. For special scripting purposes you may need the individual commands. For this use case call <b>hugin_executor</b> with <tt>--dry-run</tt> switch. This will print all commands to the console, from where you can use them in your own scripts.
+</li>
+</ul>
+
+
+
+
+</div>								<div class="printfooter">
+				Retrieved from "http://wiki.panotools.org/index.php?title=Hugin_executor&amp;oldid=15911<a class="external" href="http://wiki.panotools.org/index.php?title=Hugin_executor&amp;oldid=15911">[*]</a>"				</div>
+												</div></div></body></html>

@@ -1,0 +1,16 @@
+[General]
+Description=Normal panorama with layered TIFF output
+Help=Output a panorama with layered TIFF output for manual blending
+StepCount=2
+IntermediateImageType=tif
+
+[Step0]
+Description=Remapping images
+Type=remap
+Arguments=-r ldr -m TIFF_multilayer
+
+[Step1]
+Description=Updating metadata
+Type=exiftool
+Result=%prefix%.tif
+Arguments=-overwrite_original -TagsFromFile %image0% -ImageDescription -Make -Model -Artist -WhitePoint -Copyright -GPS:all -DateTimeOriginal -CreateDate -UserComment -ColorSpace -OwnerName -SerialNumber %result%
