@@ -64,13 +64,6 @@ namespace fs = boost::filesystem;
 #include <libgen.h>       /* dirname */
 #endif
 
-#include <GL/glew.h>
-#ifdef _WIN32
-#include <GL/wglew.h>
-#elif defined __APPLE__
-  #include <GLUT/glut.h>
-#endif
-
 namespace hugin_utils {
     
 #ifdef UNIX_LIKE
