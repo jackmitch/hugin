@@ -66,31 +66,8 @@ FIND_PACKAGE(PkgConfig)
 set(HUGIN_SHARED "1" CACHE STRING "Build shared internal libraries" )
 
 ##
-## wxWidgets
-##
-#  This must come before FINDs for tiff, jpeg, png, zlib to enable
-#  finding the wxWidgets distributions of those packages (Win32 only).
-SET(wxWidgets_USE_LIBS base core aui xrc html xml adv gl net qa)
-FIND_PACKAGE(wxWidgets REQUIRED)
-
-# hugin requires wxwidgets 3.0 or above
-IF (UNIX)
-  EXEC_PROGRAM(sh ARGS "${wxWidgets_CONFIG_EXECUTABLE} --version" OUTPUT_VARIABLE wxWidgets_VERSION)
-  STRING(REGEX REPLACE "^([0-9]+\\.[0-9]+)\\..*" "\\1"  wxWidgets_VERSION ${wxWidgets_VERSION})
-  IF(wxWidgets_VERSION VERSION_LESS "3.0")
-    MESSAGE(FATAL_ERROR "At least wxWidgets 3.0 is required")
-  ENDIF()
-  # Ubuntu has 2 different devel packages, we need the GUI version
-  EXEC_PROGRAM(sh ARGS "${wxWidgets_CONFIG_EXECUTABLE} --query-toolkit" OUTPUT_VARIABLE wxWidgets_TOOLKIT)
-  IF(wxWidgets_TOOLKIT STREQUAL "base")
-    MESSAGE(FATAL_ERROR "wxWidgets is as non-GUI package configured. Check you wxWidgets installation (maybe wxgtkXX-devel is missing)")
-  ENDIF()
-ENDIF (UNIX)
-
-##
 ## Graphics libraries
 ##
-# wxWidgets sub-packages will be used if native ones aren't found
 
 FIND_PACKAGE(TIFF REQUIRED)
 INCLUDE_DIRECTORIES(${TIFF_INCLUDE_DIR})
@@ -124,25 +101,6 @@ include_directories(${VIGRA_INCLUDE_DIR})
 
 FIND_PACKAGE(EXIV2 REQUIRED)
 INCLUDE_DIRECTORIES(${EXIV2_INCLUDE_DIR})
-
-## OpenGL and GLEW
-
-FIND_PACKAGE(OpenGL REQUIRED)
-INCLUDE_DIRECTORIES(${OPENGL_INCLUDE_DIR})
-SET(OPENGL_GLEW_LIBRARIES ${OPENGL_LIBRARIES})
-IF (APPLE)
-  FIND_PACKAGE(GLUT REQUIRED)
-  INCLUDE_DIRECTORIES(${GLUT_INCLUDE_DIR})
-  SET(OPENGL_GLEW_LIBRARIES ${OPENGL_GLEW_LIBRARIES} ${GLUT_LIBRARIES})
-ENDIF()
-FIND_PACKAGE(GLEW REQUIRED)
-INCLUDE_DIRECTORIES(${GLEW_INCLUDE_DIR})
-SET(OPENGL_GLEW_LIBRARIES ${OPENGL_GLEW_LIBRARIES} ${GLEW_LIBRARIES})
-IF(NOT HUGIN_SHARED OR NOT WIN32)
-  ADD_DEFINITIONS(-DGLEW_STATIC)
-ENDIF()
-
-FIND_PACKAGE(X11 REQUIRED)
 
 ##
 ## Panotools
@@ -266,12 +224,6 @@ IF(ENABLE_LAPACK)
     MESSAGE(STATUS "LAPACK not found, using LU-based solver")
   ENDIF(LAPACK_FOUND)
 ENDIF(ENABLE_LAPACK)
-
-OPTION(USE_GDKBACKEND_X11 "Enforce GDK_BACKEND=x11 for Hugin as workaround for wxWidgets bug (not supporting wxGLCanvas on Wayland)" OFF)
-IF(USE_GDKBACKEND_X11)
-  ADD_DEFINITIONS(-DUSE_GDKBACKEND_X11)
-  MESSAGE(STATUS "Compiling Hugin with hard coded GDK_BACKEND=x11")
-ENDIF()
 
 #
 # Check build type and set options accordingly

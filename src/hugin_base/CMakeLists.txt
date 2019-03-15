@@ -55,9 +55,7 @@ panodata/Exiv2Helper.cpp
 panotools/PanoToolsInterface.cpp
 panotools/PanoToolsOptimizerWrapper.cpp
 panotools/PanoToolsUtils.cpp
-panotools/PanoToolsTransformGPU.cpp
 vigra_ext/emor.cpp
-vigra_ext/ImageTransformsGPU.cpp
 )
 
 SET(HUGIN_BASE_HEADER
@@ -135,7 +133,6 @@ vigra_ext/FitPolynom.h
 vigra_ext/FunctorAccessor.h
 vigra_ext/HDRUtils.h
 vigra_ext/ImageTransforms.h
-vigra_ext/ImageTransformsGPU.h
 vigra_ext/InterestPoints.h
 vigra_ext/Interpolators.h
 vigra_ext/lut.h

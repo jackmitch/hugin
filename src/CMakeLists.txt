@@ -20,19 +20,11 @@ set(image_libs ${VIGRA_LIBRARIES} ${OPENEXR_LIBRARIES} ${JPEG_LIBRARIES} ${TIFF_
 
 SET(common_libs ${common_libs} ${image_libs} ${LCMS2_LIBRARIES} Threads::Threads)
 
-add_subdirectory(celeste)
+#add_subdirectory(celeste)
 add_subdirectory(foreign)
 add_subdirectory(hugin_base)
 add_subdirectory(tools)
-add_subdirectory(deghosting)
+#add_subdirectory(deghosting)
 
-# hsi contains the Python interface. This add_ should be conditional,
-# depending on availability of SWIG and Python.
-# this have to come before hugin1 directory
-IF(BUILD_HSI)
-add_subdirectory(hugin_script_interface)
-ENDIF()
-
-add_subdirectory(hugin_cpfind)
-add_subdirectory(translations)
-add_subdirectory(hugin1)
+#add_subdirectory(hugin_cpfind)
+#add_subdirectory(translations)

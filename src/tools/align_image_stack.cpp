@@ -104,7 +104,6 @@ static void usage(const char* name)
          << "  --distortion Try to load distortion information from lens database" << std::endl
          << "  --use-given-order  Use the image order as given from command line" << std::endl
          << "                     (By default images will be sorted by exposure values.)" << std::endl
-         << "  --gpu     Use GPU for remapping" << std::endl
          << "  -h        Display help (this text)" << std::endl
          << std::endl;
 }
@@ -472,7 +471,6 @@ struct Parameters
         pop_out = false;
         crop = false;
         fisheye = false;
-        gpu = false;
         loadDistortion = false;
         sortImagesByEv = true;
     }
@@ -494,7 +492,6 @@ struct Parameters
     bool stereo_window;
     bool pop_out;
     bool crop;
-    bool gpu;
     bool loadDistortion;
     bool sortImagesByEv;
     int pyrLevel;
@@ -905,7 +902,6 @@ int main2(std::vector<std::string> files, Parameters param)
             opts.outputFormat = HuginBase::PanoramaOptions::TIFF_m;
             opts.outputPixelType = "";
             opts.outfile = param.alignedPrefix;
-            opts.remapUsingGPU = param.gpu;
             pano.setOptions(opts);
             // remap all images
             AppBase::ProgressDisplay* progress;
@@ -966,7 +962,6 @@ int main(int argc, char* argv[])
     {
         {"corr", required_argument, NULL, CORRTHRESH },
         {"threads", required_argument, NULL, THREADS },
-        {"gpu", no_argument, NULL, GPU },
         {"distortion", no_argument, NULL, LENSDB },
         {"use-given-order", no_argument, NULL, USEGIVENORDER },
         {"help", no_argument, NULL, 'h' },
@@ -1081,9 +1076,6 @@ int main(int argc, char* argv[])
             case THREADS:
                 std::cout << "WARNING: Switch --threads is deprecated. Set environment variable OMP_NUM_THREADS instead" << std::endl;
                 break;
-            case GPU:
-                param.gpu = true;
-                break;
             case LENSDB:
                 param.loadDistortion = true;
                 break;
@@ -1147,10 +1139,6 @@ int main(int argc, char* argv[])
         return 1;
     }
 
-    if(param.gpu)
-    {
-        param.gpu=hugin_utils::initGPU(&argc, argv);
-    };
     if (grayscale)
     {
         if (pixelType == "UINT8")
@@ -1198,10 +1186,6 @@ int main(int argc, char* argv[])
         }
     };
 
-    if(param.gpu)
-    {
-        hugin_utils::wrapupGPU();
-    };
     HuginBase::LensDB::LensDB::Clean();
     return returnValue;
 }

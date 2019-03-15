@@ -172,12 +172,6 @@ RemappedPanoImage<ImageType, AlphaType>*
     int width = info.width();
     int height = info.height();
 
-    if (opts.remapUsingGPU) {
-        // Extend image width to multiple of 8 for fast GPU transfers.
-        const int r = width % 8;
-        if (r != 0) width += 8 - r;
-    }
-
     ImageType srcImg(width, height);
     m_remapped->m_ICCProfile = info.getICCProfile();
     
