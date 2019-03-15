@@ -93,9 +93,6 @@ ENDIF()
 
 ENDIF()
 
-FIND_PACKAGE(OpenEXR REQUIRED)
-include_directories(${OPENEXR_INCLUDE_DIR})
-
 FIND_PACKAGE(VIGRA 1.9.0 REQUIRED)
 include_directories(${VIGRA_INCLUDE_DIR})
 
