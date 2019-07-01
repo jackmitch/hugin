@@ -30,7 +30,7 @@
 
 #include <string>
 #include <vector>
-#include <exiv2/exif.hpp>
+#include <exiv2/exiv2.hpp>
 
 // these functions are intentionally not exposed to public
 // they are supposed only be used by SrcPanoImage.cpp for internal use

@@ -32,8 +32,7 @@
 #include "algorithms/optimizer/ImageGraph.h"
 #include "algorithms/control_points/CleanCP.h"
 #include "celeste/Celeste.h"
-#include <exiv2/exif.hpp>
-#include <exiv2/image.hpp>
+#include <exiv2/exiv2.hpp>
 #include "base_wx/LensTools.h"
 #include "base_wx/wxLensDB.h"
 #include "hugin/ResetDialog.h"

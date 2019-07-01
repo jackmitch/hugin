@@ -58,8 +58,7 @@
 
 // for loading preview images
 #include "wx/mstream.h"
-#include "exiv2/exiv2.hpp"
-#include "exiv2/preview.hpp"
+#include <exiv2/exiv2.hpp>
 
 TextureManager::TextureManager(HuginBase::Panorama *pano, ViewState *view_state_in)
 {

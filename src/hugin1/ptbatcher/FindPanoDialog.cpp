@@ -32,8 +32,7 @@
 #include "hugin_utils/alphanum.h"
 #include "hugin/config_defaults.h"
 #include "wx/mstream.h"
-#include "exiv2/exiv2.hpp"
-#include "exiv2/preview.hpp"
+#include <exiv2/exiv2.hpp>
 #ifdef _WIN32
 #include <commctrl.h>
 #endif

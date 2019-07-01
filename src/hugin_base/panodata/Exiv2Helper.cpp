@@ -28,7 +28,7 @@
 #include "Exiv2Helper.h"
 #include "hugin_math/hugin_math.h"
 #include "hugin_utils/utils.h"  
-#include "exiv2/easyaccess.hpp"
+#include <exiv2/exiv2.hpp>
 
 namespace HuginBase
 {
